@@ -1,0 +1,8 @@
+.NavBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    background-image: linear-gradient(to right, #a0b6d4, #d4be97)
+}
