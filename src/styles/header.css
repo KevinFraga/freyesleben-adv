@@ -4,14 +4,82 @@
     align-items: top;
     justify-content: space-between;
     padding: 2rem;
-    background-image: linear-gradient(to right, #a0b6d4, #ffffff)
+    background-image: linear-gradient(to right, #a0b6d4, #ffffff);
 }
 
 #logo {
-    height: 15rem;
-    width: 30rem;
+    height: 10rem;
+    /* width: 25rem; */
 }
 
 #login {
-    height: 4rem;
+    height: 3rem;
+}
+
+#hamb {
+    height: 3rem;
+    width: 3rem;
+}
+
+.hamburger-lines {
+    display: block;
+    height: 2.4rem;
+    width: 3rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.line {
+    display: block;
+    height: 0.4rem;
+    width: 100%;
+    border-radius: 10rem;
+    background: #043a7c;
+}
+
+.hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.open .line1 {
+    transform: rotate(45deg);
+}
+
+.open .line2 {
+    transform: scaleY(0);
+}
+
+.open .line3 {
+    transform: rotate(-45deg);
+}
+
+.open .menu-items {
+    transform: translateY(0);
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 1rem;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    width: 40%;
+    transform: translateY(-100vh);
+    display: flex;
+    padding-left: 10rem;
+    transition: transform 0.5s ease-in-out;
+    text-align: left;
+    margin: 1rem;
 }

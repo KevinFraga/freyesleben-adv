@@ -3,12 +3,44 @@ import { Link } from 'react-router-dom'
 import "../styles/header.css"
 
 class Header extends Component {
-    render() {
+    constructor() {
+        super();
+        this.state = {
+            menu: false,
+            itens: ['Minha Conta', 'Quem Somos', 'Áreas de Atuação', 'Ações em Destaque', 'Nossos Parceiros', 'Depoimentos', 'Blog', 'Fale Conosco', 'Contato']
+        };
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+
+    toggleMenu = () => this.setState({ menu: !this.state.menu });
+
+    hamburguerMenu() {
+        const { itens, menu } = this.state;
         return (
-            <div className="NavBar">
-                <svg width="60px" height="60px"><path d="M41,14H7a2,2,0,0,1,0-4H41A2,2,0,0,1,41,14Z" fill="#004aa2"/><path d="M41,26H7a2,2,0,0,1,0-4H41A2,2,0,0,1,41,26Z" fill="#004aa2"/><path d="M41,38H7a2,2,0,0,1,0-4H41A2,2,0,0,1,41,38Z" fill="#004aa2"/></svg>
-                <img src="logo.png" alt="logo" id="logo" />
-                <Link to='login'><img src="login-removebg-preview.png" alt="login" id="login" /></Link>
+            <div className={menu ? 'open' : 'close'}>
+                <ul className='menu-items'>
+                    {itens.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+            </div>
+        )
+    }
+
+    render() {
+        const { menu } = this.state;
+        return (
+            <div>
+                <div className="NavBar">
+                    <div className={menu ? 'open' : 'close'} onClick={this.toggleMenu}>
+                        <div className="hamburger-lines">
+                            <span className="line line1"></span>
+                            <span className="line line2"></span>
+                            <span className="line line3"></span>
+                        </div>
+                    </div>
+                    <img src="logo.png" alt="logo" id="logo" />
+                    <Link to='login'><img src="login-removebg-preview.png" alt="login" id="login" /></Link>
+                </div>
+                {this.hamburguerMenu()}
             </div>
         )
     }
