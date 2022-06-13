@@ -9,7 +9,6 @@
 
 #logo {
     height: 10rem;
-    /* width: 25rem; */
 }
 
 #login {
@@ -70,16 +69,33 @@
 }
 
 .menu-items {
+    justify-content: center;
     display: flex;
     flex-direction: column;
     list-style: none;
-    padding: 1rem;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    background-color: #033e8d;
     width: 40%;
-    transform: translateY(-100vh);
-    display: flex;
-    padding-left: 10rem;
+    transform: translateY(-150vh);
     transition: transform 0.5s ease-in-out;
-    text-align: left;
     margin: 1rem;
+    padding: 1rem;
+}
+
+.menu-items li {
+    border-top: solid #004aa2;
+    height: 1.6rem;
+    padding: 0.3rem;
+    color: white
+}
+
+.menu-items li:hover {
+    background-color: #004aa2;
+}
+
+.unseen li {
+    display: none;
+}
+
+.seen li {
+    list-style: none;
 }
