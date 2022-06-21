@@ -23,20 +23,20 @@ class Header extends Component {
         return (
             <div className={menu ? 'open' : 'close'}>
                 <ul className='menu-items'>
-                    <Link to={loggedIn ? 'conta' : 'login'}><li>Minha Conta</li></Link>
-                    <Link to='quemsomos'><li>Quem Somos</li></Link>
+                    <Link to={loggedIn ? '/conta' : '/login'}><li>Minha Conta</li></Link>
+                    <Link to='/quem_somos'><li>Quem Somos</li></Link>
                     <li onClick={this.toggleFeatured}>Ações em Destaque</li>
                     <ul className={featured ? 'seen' : 'unseen'}>
-                        <Link to='causas/#fgts'><li>Revisão de Valores FGTS</li></Link>
-                        <Link to='causas/#inventAERUS'><li>Ação Inventário: Benefício AERUS</li></Link>
-                        <Link to='causas/#emprestAERUS'><li>Ação Monitória Empréstimos AERUS</li></Link>
-                        <Link to='causas/#rateio'><li>Recebimento de Rateios</li></Link>
+                        <Link to='/causas/#fgts'><li>Revisão de Valores FGTS</li></Link>
+                        <Link to='/causas/#inventAERUS'><li>Ação Inventário: Benefício AERUS</li></Link>
+                        <Link to='/causas/#emprestAERUS'><li>Ação Monitória Empréstimos AERUS</li></Link>
+                        <Link to='/causas/#rateio'><li>Recebimento de Rateios</li></Link>
                     </ul>
-                    <Link to='parceiros'><li>Nossos Parceiros</li></Link>
-                    <Link to='depoimentos'><li>Depoimentos</li></Link>
-                    <Link to='faleconosco'><li>Fale Conosco</li></Link>
-                    <Link to='blog'><li>Blog</li></Link>
-                    <Link to='contato'><li>Contato</li></Link>
+                    <Link to='/parceiros'><li>Nossos Parceiros</li></Link>
+                    <Link to='/depoimentos'><li>Depoimentos</li></Link>
+                    <Link to='/faleconosco'><li>Fale Conosco</li></Link>
+                    <Link to='/blog'><li>Blog</li></Link>
+                    <Link to='/contato'><li>Contato</li></Link>
                     <Link to='/'><li>Sair</li></Link>
                 </ul>
             </div>

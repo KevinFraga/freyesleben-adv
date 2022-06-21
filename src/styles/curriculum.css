@@ -1,0 +1,80 @@
+.title {
+    color: #03318d;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.curriculum {
+    display: block;
+    border: solid 2px #033E8D;
+    color: #03318d;
+    font-family: Helvetica, sans-serif;
+    left: 7%;
+    list-style: none;
+    margin: 1rem 0;
+    position: relative;
+    text-align: left;
+    text-shadow: 1px 1px black;
+    width: 80%;
+}
+
+.c-name {
+    height: 2rem;
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+/* .first {
+   writing-mode: vertical-lr;
+   transform: rotate(-45deg);
+   position: relative;
+   left: -40%;
+   top: -450%;
+}
+
+.middle {
+    position: relative;
+    top: -450%;
+    left: 0%;
+}
+
+.last {
+    writing-mode: vertical-lr;
+    transform: rotate(225deg);
+    position: relative;
+    right: -50%;
+    top: -450%;
+} */
+
+.c-img {
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.c-img img {
+    border-radius: 100%;
+    margin: 2rem;
+    width: 15rem;
+}
+
+.c-text {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    margin: 5%;
+    width: 80%;
+}
+
+.line-minor {
+    display: block;
+    height: 0.4rem;
+    position: relative;
+    width: 50%;
+    left: 20%;
+    border-radius: 10rem;
+    background: #043a7c;
+}

@@ -35,13 +35,13 @@ ul.slides {
 
 .slide-image img {
     width: 100%;
-    height: 68%;
+    height: 55vh;
 }
 
 .slide-text {
     bottom: 0;
     color: #03318d;
-    left: 25%;
+    left: 10%;
     display: block;
     position: absolute;
     margin: 1.2rem;
@@ -50,7 +50,7 @@ ul.slides {
     text-align: left;
     font-family: Helvetica, sans-serif;
     transition: all .7s ease-in-out;
-    width: 50%;
+    width: 70%;
     text-shadow: 1px 1px black;
 }
 
