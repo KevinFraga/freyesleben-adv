@@ -6,7 +6,7 @@
     font-weight: 700;
 }
 
-.curriculum {
+.important {
     display: block;
     border: solid 2px #033E8D;
     color: #03318d;
@@ -26,28 +26,6 @@
     text-align: left;
 }
 
-/* .first {
-   writing-mode: vertical-lr;
-   transform: rotate(-45deg);
-   position: relative;
-   left: -40%;
-   top: -450%;
-}
-
-.middle {
-    position: relative;
-    top: -450%;
-    left: 0%;
-}
-
-.last {
-    writing-mode: vertical-lr;
-    transform: rotate(225deg);
-    position: relative;
-    right: -50%;
-    top: -450%;
-} */
-
 .c-img {
     align-items: center;
     display: flex;
@@ -58,7 +36,7 @@
 
 .c-img img {
     border-radius: 100%;
-    margin: 2rem;
+    margin-top: 2rem;
     width: 15rem;
 }
 

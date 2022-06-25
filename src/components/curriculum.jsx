@@ -6,18 +6,11 @@ class Curriculum extends Component {
         return (
             <div>
                 <p className="title">QUEM SOMOS</p>
-                <ul className="curriculum">
+                <ul className="important">
                     <li>
                         <div className="c-img">
-                            <img src="slide1.png" />
+                            <img src="/Alexandre_sem_fundo.png" alt="alexandre"/>
                             <p className="c-name">Alexandre Guerrieri Freyesleben</p>
-                                {/* 
-                                <div className="c-name">
-                                    <span className="first">Alexandre</span>
-                                    <span className="middle">Guerrieri</span>
-                                    <span className="last">Freyesleben</span>
-                                </div>
-                                 */}
                         </div>
                         <div className="c-text">
                             <h3>CARGOS E ATUAÇÕES</h3>
@@ -36,7 +29,7 @@ class Curriculum extends Component {
                     </li>
                     <li>
                         <div className="c-img">
-                            <img src="slide2.png" />
+                            <img src="/yago-sem-fundo.png" alt="yago" />
                             <p className="c-name">Yago Gomes Freyesleben</p>
                         </div>
                         <div className="c-text">

@@ -5,7 +5,7 @@ class Motivation extends Component {
         return (
             <div>
                 <p className="title">E o que nos mantém inspirados</p>
-                <ul className="curriculum">
+                <ul className="important">
                     <li className="c-text">MISSÃO: Prestar serviços jurídicos com ética e eficácia a fim de auxiliar pessoas a alcançar objetivos.</li>
                     <span className="line-minor" />
                     <li className="c-text">VISÃO: Ser reconhecido como referência no segmento de atuação, oferecendo uma empresa dinâmica, inovadora e eficiente.</li>

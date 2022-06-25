@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import Header from '../components/header';
+import Cases from '../components/cases';
 
 class Success extends Component {
     render() {
         return (
-            <h1>Success</h1>
-        )
+            <div>
+                <Header />
+                <Cases />
+            </div>
+        );
     }
 }
 

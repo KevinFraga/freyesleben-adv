@@ -14,7 +14,10 @@ class Header extends Component {
         this.toggleFeatured = this.toggleFeatured.bind(this);
     }
 
-    toggleMenu = () => this.setState({ menu: !this.state.menu });
+    toggleMenu = () => {
+        this.setState({ menu: !this.state.menu });
+        if (this.state.featured) this.toggleFeatured();
+    };
 
     toggleFeatured = () => this.setState({ featured: !this.state.featured });
 
@@ -27,10 +30,10 @@ class Header extends Component {
                     <Link to='/quem_somos'><li>Quem Somos</li></Link>
                     <li onClick={this.toggleFeatured}>Ações em Destaque</li>
                     <ul className={featured ? 'seen' : 'unseen'}>
-                        <Link to='/causas/#fgts'><li>Revisão de Valores FGTS</li></Link>
-                        <Link to='/causas/#inventAERUS'><li>Ação Inventário: Benefício AERUS</li></Link>
-                        <Link to='/causas/#emprestAERUS'><li>Ação Monitória Empréstimos AERUS</li></Link>
-                        <Link to='/causas/#rateio'><li>Recebimento de Rateios</li></Link>
+                        <a href='/causas/#fgts'><li onClick={this.toggleMenu}>Revisão de Valores FGTS</li></a>
+                        <a href='/causas/#emprestimos_AERUS'><li onClick={this.toggleMenu}>Ação Monitória Empréstimos AERUS</li></a>
+                        <a href='/causas/#inventario_AERUS'><li onClick={this.toggleMenu}>Ação Inventário: Benefício AERUS</li></a>
+                        <a href='/causas/#rateio'><li onClick={this.toggleMenu}>Recebimento de Rateios</li></a>
                     </ul>
                     <Link to='/parceiros'><li>Nossos Parceiros</li></Link>
                     <Link to='/depoimentos'><li>Depoimentos</li></Link>
@@ -55,8 +58,8 @@ class Header extends Component {
                             <span className="line line3" />
                         </div>
                     </div>
-                    <img src="logo.png" alt="logo" id="logo" />
-                    <Link to='login'><img src="login-removebg-preview.png" alt="login" id="login" /></Link>
+                    <img src="/logo.png" alt="logo" id="logo" />
+                    <Link to='login'><img src="/login-removebg-preview.png" alt="login" id="login" /></Link>
                 </div>
                 {this.hamburguerMenu()}
             </div>

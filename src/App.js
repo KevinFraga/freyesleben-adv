@@ -18,7 +18,7 @@ function App() {
         <Route path="/login" element={ <Login /> } />
         <Route path="/exclusivo_membros" element={ <Exclusive /> } />
         <Route path="/especialidades" element={ <Specialty /> } />
-        <Route path="/cases_sucesso" element={ <Success /> } />
+        <Route path="/causas" element={ <Success /> } />
         <Route path="/quem_somos" element={ <WhoWeAre /> } />
       </Routes>
     </BrowserRouter>

@@ -37,7 +37,7 @@ class Hub extends Component {
                     <ul class="slides">
                         <li className={(slide === 1) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide1.png" />
+                                <img src="/slide1.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>ALCANCE SEUS OBJETIVOS</h2>
@@ -49,7 +49,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 2) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide2.png" />
+                                <img src="/slide2.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>CONHEÇA AS AÇÕES EM DESTAQUE</h2>
@@ -61,7 +61,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 3) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide3.png" />
+                                <img src="/slide3.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>DIREITOS TRABALHISTAS. HOMOLOGAÇÃO. DIREITO DO CONSUMIDOR. COMPLIANCE. RECURSOS ADMINISTRATIVOS.</h2>
@@ -73,7 +73,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 4) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide4.png" />
+                                <img src="/slide4.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>CONTRATO. INDENIZAÇÃO. DIREITO DO CONSUMIDOR. RESPONSABILIDADE CIVIL. PROPRIEDADE. USUCAPIÃO.</h2>
@@ -85,7 +85,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 5) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide5.png" />
+                                <img src="/slide5.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>DIVÓRCIO. PARTILHA DE BENS. PENSÃO ALIMENTÍCIA. VISITAÇÃO. ACORDO PRÉ-NUPCIAL. JUDICIAL E EXTRAJUDICIAL.</h2>
@@ -97,7 +97,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 6) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide6.png" />
+                                <img src="/slide6.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>NÓS CUIDAMOS DO SEU INVENTÁRIO. TESTAMENTOS & HERANÇAS. JUDICIAL E EXTRAJUDICIAL.</h2>
@@ -109,7 +109,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 7) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide7.png" />
+                                <img src="/slide7.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>CLT & ESTATUTÁRIO.</h2>
@@ -121,7 +121,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 8) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide8.png" />
+                                <img src="/slide8.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>RECUPERAÇÃO JUDICIAL. FALÊNCIA. HABILITAÇÃO E RECLASSIFICAÇÃO DE CRÉDITO. ADMINISTRADOR JUDICIAL.</h2>
@@ -133,7 +133,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 9) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide9.png" />
+                                <img src="/slide9.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>ACOMPANHE O PROCESSO.</h2>
@@ -145,7 +145,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 10) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide10.png" />
+                                <img src="/slide10.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>AGENTE CBF. RECURSO ADMINISTRATIVO.</h2>
@@ -157,7 +157,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 11) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide11.png" />
+                                <img src="/slide11.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>INVENTÁRIO E EMPRÉSTIMOS. ACORDOS JUDICIAL E EXTRAJUDICIAL.</h2>
@@ -169,7 +169,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 12) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide12.png" />
+                                <img src="/slide12.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>REVISÃO DA CORREÇÃO MONETÁRIA.</h2>
@@ -181,7 +181,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 13) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide13.png" />
+                                <img src="/slide13.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>LEI DE INCENTIVO À CULTURA E AO ESPORTE. LEI ROAUNET. FUTEBOL S.A.</h2>
@@ -193,7 +193,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 14) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="slide14.png" />
+                                <img src="/slide14.png" alt="slide" />
                             </div>
                             <div className="slide-text">
                                 <h2>BENEFÍCIOS EXCLUSIVOS.</h2>
