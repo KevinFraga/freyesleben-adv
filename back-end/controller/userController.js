@@ -6,6 +6,13 @@ const registerUser = async (req, res) => {
     return res.status(201).json(userData);
 };
 
+const getUsers = async (_req, res) => {
+    const userData = await user.getUsers();
+
+    return res.status(200).send(userData);
+}
+
 module.exports = {
-    registerUser
+    registerUser,
+    getUsers
 };

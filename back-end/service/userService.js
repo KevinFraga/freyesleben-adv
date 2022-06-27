@@ -12,6 +12,9 @@ const registerUser = async ({ name, email, password }) => {
     return resgister;
 };
 
+const getUsers = async () => await user.getUsers();
+
 module.exports = {
-    registerUser
+    registerUser,
+    getUsers
 }
