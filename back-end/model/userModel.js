@@ -3,16 +3,18 @@ const connect = require('./connection');
 const registerUser = async (userData) => {
     const { name, email, password } = userData;
 
-    const [_data] = await connect.execute(
-        'INSERT INTO users VALUES(?, ?, ?)',
-        [name, email, password]
+    const values = [name, email, password]
+
+    const [_data] = await connect.query(
+        'INSERT INTO users (name, email, password) VALUES(?, ?, ?);',
+        values
     );
 
     return userData;
 };
 
 const getUsers = async () => {
-    const [data] = await connect.execute('SELECT * FROM users');
+    const [data] = await connect.query('SELECT * FROM users;');
 
     return data;
 };
