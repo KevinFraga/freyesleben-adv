@@ -10,9 +10,16 @@ const getUsers = async (_req, res) => {
     const userData = await user.getUsers();
 
     return res.status(200).send(userData);
-}
+};
+
+const getUserByEmail = async (req, res) => {
+    const userData = await user.getUserByEmail(req.body);
+
+    return res.status(200).json(userData);
+};
 
 module.exports = {
     registerUser,
-    getUsers
+    getUsers,
+    getUserByEmail
 };

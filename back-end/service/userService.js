@@ -14,7 +14,17 @@ const registerUser = async ({ name, email, password }) => {
 
 const getUsers = async () => await user.getUsers();
 
+const getUserByEmail = async (userEmail) => {
+    const { email } = userEmail;
+
+    const [data] = await user.getUserByEmail(email);
+
+    return data;
+}
+
+
 module.exports = {
     registerUser,
-    getUsers
+    getUsers,
+    getUserByEmail
 }

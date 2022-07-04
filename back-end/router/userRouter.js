@@ -8,4 +8,6 @@ router.post('/', user.registerUser);
 
 router.get('/', user.getUsers);
 
+router.get('/email', user.getUserByEmail);
+
 module.exports = router;

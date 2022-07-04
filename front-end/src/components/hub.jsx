@@ -39,11 +39,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide1.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>ALCANCE SEUS OBJETIVOS</h2>
-                                <span className="line" />
-                                <h1>O JEITO MAIS SEGURO DE ENCONTRAR JUSTIÇA</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>ALCANCE SEUS OBJETIVOS</h2>
+                                    <span className="line" />
+                                    <h1>O JEITO MAIS SEGURO DE ENCONTRAR JUSTIÇA</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -51,11 +53,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide2.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>CONHEÇA AS AÇÕES EM DESTAQUE</h2>
-                                <span className="line" />
-                                <h1>AS ESPECIALIDADES DOS ADVOGADOS</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>CONHEÇA AS AÇÕES EM DESTAQUE</h2>
+                                    <span className="line" />
+                                    <h1>AS ESPECIALIDADES DOS ADVOGADOS</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -63,11 +67,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide3.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>DIREITOS TRABALHISTAS. HOMOLOGAÇÃO. DIREITO DO CONSUMIDOR. COMPLIANCE. RECURSOS ADMINISTRATIVOS.</h2>
-                                <span className="line" />
-                                <h1>DIREITO AERONÁUTICO</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>DIREITOS TRABALHISTAS. HOMOLOGAÇÃO. DIREITO DO CONSUMIDOR. COMPLIANCE. RECURSOS ADMINISTRATIVOS.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO AERONÁUTICO</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -75,11 +81,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide4.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>CONTRATO. INDENIZAÇÃO. DIREITO DO CONSUMIDOR. RESPONSABILIDADE CIVIL. PROPRIEDADE. USUCAPIÃO.</h2>
-                                <span className="line" />
-                                <h1>DIREITO CIVIL</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>CONTRATO. INDENIZAÇÃO. DIREITO DO CONSUMIDOR. RESPONSABILIDADE CIVIL. PROPRIEDADE. USUCAPIÃO.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO CIVIL</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -87,11 +95,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide5.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>DIVÓRCIO. PARTILHA DE BENS. PENSÃO ALIMENTÍCIA. VISITAÇÃO. ACORDO PRÉ-NUPCIAL. JUDICIAL E EXTRAJUDICIAL.</h2>
-                                <span className="line" />
-                                <h1>DIREITO DE FAMÍLIA</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>DIVÓRCIO. PARTILHA DE BENS. PENSÃO ALIMENTÍCIA. VISITAÇÃO. ACORDO PRÉ-NUPCIAL. JUDICIAL E EXTRAJUDICIAL.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO DE FAMÍLIA</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -99,11 +109,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide6.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>NÓS CUIDAMOS DO SEU INVENTÁRIO. TESTAMENTOS & HERANÇAS. JUDICIAL E EXTRAJUDICIAL.</h2>
-                                <span className="line" />
-                                <h1>DIREITO DE SUCESSÃO</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>NÓS CUIDAMOS DO SEU INVENTÁRIO. TESTAMENTOS & HERANÇAS. JUDICIAL E EXTRAJUDICIAL.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO DE SUCESSÃO</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -111,11 +123,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide7.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>CLT & ESTATUTÁRIO.</h2>
-                                <span className="line" />
-                                <h1>DIREITO DO TRABALHO</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>CLT & ESTATUTÁRIO.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO DO TRABALHO</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -123,11 +137,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide8.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>RECUPERAÇÃO JUDICIAL. FALÊNCIA. HABILITAÇÃO E RECLASSIFICAÇÃO DE CRÉDITO. ADMINISTRADOR JUDICIAL.</h2>
-                                <span className="line" />
-                                <h1>DIREITO EMPRESARIAL</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>RECUPERAÇÃO JUDICIAL. FALÊNCIA. HABILITAÇÃO E RECLASSIFICAÇÃO DE CRÉDITO. ADMINISTRADOR JUDICIAL.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO EMPRESARIAL</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -135,11 +151,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide9.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>ACOMPANHE O PROCESSO.</h2>
-                                <span className="line" />
-                                <h1>MASSA FALIDA OU RECUPERAÇÃO JUDICIAL</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>ACOMPANHE O PROCESSO.</h2>
+                                    <span className="line" />
+                                    <h1>MASSA FALIDA OU RECUPERAÇÃO JUDICIAL</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -147,11 +165,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide10.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>AGENTE CBF. RECURSO ADMINISTRATIVO.</h2>
-                                <span className="line" />
-                                <h1>DIREITO DESPORTIVO</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>AGENTE CBF. RECURSO ADMINISTRATIVO.</h2>
+                                    <span className="line" />
+                                    <h1>DIREITO DESPORTIVO</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -159,11 +179,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide11.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>INVENTÁRIO E EMPRÉSTIMOS. ACORDOS JUDICIAL E EXTRAJUDICIAL.</h2>
-                                <span className="line" />
-                                <h1>AERUS</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>INVENTÁRIO E EMPRÉSTIMOS. ACORDOS JUDICIAL E EXTRAJUDICIAL.</h2>
+                                    <span className="line" />
+                                    <h1>AERUS</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -171,11 +193,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide12.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>REVISÃO DA CORREÇÃO MONETÁRIA.</h2>
-                                <span className="line" />
-                                <h1>FGTS</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>REVISÃO DA CORREÇÃO MONETÁRIA.</h2>
+                                    <span className="line" />
+                                    <h1>FGTS</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -183,11 +207,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide13.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>LEI DE INCENTIVO À CULTURA E AO ESPORTE. LEI ROAUNET. FUTEBOL S.A.</h2>
-                                <span className="line" />
-                                <h1>PROJETO DE LEI DE INCENTIVO À CULTURA E AO DESPORTO</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>LEI DE INCENTIVO À CULTURA E AO ESPORTE. LEI ROAUNET. FUTEBOL S.A.</h2>
+                                    <span className="line" />
+                                    <h1>PROJETO DE LEI DE INCENTIVO À CULTURA E AO DESPORTO</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>
@@ -195,11 +221,13 @@ class Hub extends Component {
                             <div class="slide-image">
                                 <img src="/slide14.png" alt="slide" />
                             </div>
-                            <div className="slide-text">
-                                <h2>BENEFÍCIOS EXCLUSIVOS.</h2>
-                                <span className="line" />
-                                <h1>ÁREA DE CLIENTES CADASTRADOS</h1>
-                                <span className="line" />
+                            <div className="text-container">
+                                <div className="slide-text">
+                                    <h2>BENEFÍCIOS EXCLUSIVOS.</h2>
+                                    <span className="line" />
+                                    <h1>ÁREA DE CLIENTES CADASTRADOS</h1>
+                                    <span className="line" />
+                                </div>
                             </div>
                             {this.carouselControls()}
                         </li>

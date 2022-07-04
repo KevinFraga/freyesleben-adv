@@ -47,7 +47,7 @@ class Header extends Component {
     }
 
     render() {
-        const { menu } = this.state;
+        const { menu, loggedIn } = this.state;
         return (
             <div>
                 <div className="NavBar">
@@ -59,7 +59,7 @@ class Header extends Component {
                         </div>
                     </div>
                     <img src="/logo.png" alt="logo" id="logo" />
-                    <Link to='login'><img src="/login-removebg-preview.png" alt="login" id="login" /></Link>
+                    <Link to={loggedIn ? '/conta' : '/login'}><img src="/login-removebg-preview.png" alt="login" id="login" /></Link>
                 </div>
                 {this.hamburguerMenu()}
             </div>
