@@ -15,6 +15,10 @@ class LoginForm extends Component {
             new_user_password_confirm: ''
         };
         this.handleChange = this.handleChange.bind(this);
+        this.isValidLogin = this.isValidLogin.bind(this);
+        this.isValidNewUser = this.isValidNewUser.bind(this);
+        this.loginFunction = this.loginFunction.bind(this);
+        this.createNewUser = this.createNewUser.bind(this);
     }
 
     handleChange = ({ target }) => this.setState({
@@ -52,15 +56,15 @@ class LoginForm extends Component {
     isValidNewUser() {
         const { new_user_name, new_user_email, new_user_password, new_user_password_confirm } = this.state;
 
-        const nameRegex = /^[A-Z]$/i;
+        const nameRegex = /^[A-Z ]+$/i;
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9-]+\.[A-Z]{2,4}(\.[A-Z]{2})?$/i;
-        const passwordRegex = /^.{6,8}$/;
+        const passwordRegex = /^.{6,25}$/;
 
         const new_user_name_test = nameRegex.test(new_user_name);
         const new_user_email_test = emailRegex.test(new_user_email);
         const new_user_password_test = passwordRegex.test(new_user_password);
         const new_user_password_confirm_test = passwordRegex.test(new_user_password_confirm);
-        const password_confirm_test = new_user_password == new_user_password_confirm;
+        const password_confirm_test = new_user_password === new_user_password_confirm;
 
         return new_user_name_test && new_user_email_test && new_user_password_test && new_user_password_confirm_test && password_confirm_test;
     }
@@ -82,7 +86,14 @@ class LoginForm extends Component {
             password: new_user_password
         };
 
-        axios.post('http://localhost:3007/user', headers);
+        axios.post('http://localhost:3007/user', {...headers})
+            .then((response) => {
+                if (response.data.error) {};
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         
     }
 
@@ -91,9 +102,11 @@ class LoginForm extends Component {
             <div>
                 <button
                     type="submit"
-                    disabled={registered ? this.isValidLogin() : this.isValidNewUser()}
-                    onClick={registered ? this.loginFunction : this.createNewUser()}
-                ></button>
+                    disabled={registered ? !this.isValidLogin() : !this.isValidNewUser()}
+                    onClick={registered ? this.loginFunction : this.createNewUser}
+                >
+                    Entrar
+                </button>
             </div>
         );
     }
