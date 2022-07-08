@@ -81,6 +81,8 @@ class LoginForm extends Component {
             email: new_user_email,
             password: new_user_password
         };
+
+        axios.post('http://localhost:3007/user', headers);
         
     }
 
