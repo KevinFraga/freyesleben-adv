@@ -4,12 +4,15 @@ const cors = require('cors');
 require('dotenv').config();
 
 const router = require('./router');
+const middleware = require('./middleware');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use(router);
+
+app.use(middleware.error);
 
 const port = process.env.PORT || 3001;
 

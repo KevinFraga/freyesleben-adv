@@ -1,16 +1,12 @@
 const connect = require('./connection');
 
-const registerUser = async (userData) => {
-    const { name, email, password } = userData;
-
-    const values = [name, email, password];
-
+const registerUser = async ({ name, email, password }) => {
     const [_data] = await connect.query(
         'INSERT INTO users (name, email, password) VALUES (?, ?, ?);',
-        values
+        [name, email, password]
     );
 
-    return userData;
+    return ({ name, email });
 };
 
 const getUsers = async () => {
@@ -21,11 +17,11 @@ const getUsers = async () => {
 
 const getUserByEmail = async (userEmail) => {
     const [data] = await connect.query(
-        'SELECT name, email FROM users WHERE email = ?',
+        'SELECT * FROM users WHERE email = ?',
         userEmail
     );
 
-    return data;
+    return data[0];
 }
 
 module.exports = {
