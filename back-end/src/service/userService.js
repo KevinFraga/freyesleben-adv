@@ -84,15 +84,39 @@ const login = async (userData) => {
   if (isRegistered.password !== md5(value.password)) {
     return {
       error: {
-        statusCode: 403,
+        statusCode: 401,
         message: 'Password does not match',
       },
     };
   }
 
-  const token = middleware.tokenMaker(isRegistered)
+  const token = middleware.tokenMaker(isRegistered);
 
-  return { token };
+  return { id: isRegistered.id, token };
+};
+
+const validateToken = async (userData) => {
+  const isRegistered = await user.getUserByEmail(userData.decoded.email);
+
+  if (!isRegistered) {
+    return {
+      error: {
+        statusCode: 404,
+        message: 'User not found',
+      },
+    };
+  }
+
+  if (isRegistered.password !== userData.decoded.password) {
+    return {
+      error: {
+        statusCode: 401,
+        message: 'Password does not match',
+      },
+    };
+  }
+
+  return { id: isRegistered.id, token: userData.token };
 };
 
 module.exports = {
@@ -100,4 +124,5 @@ module.exports = {
   getUsers,
   getUserByEmail,
   login,
+  validateToken,
 };

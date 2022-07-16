@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const secret = process.env.SECRET || 'segredo';
 
-const tokenValidator = (req, res, next) => {
+const tokenValidator = (req, _res, next) => {
   const { token } = req.body;
 
   if (!token) {
@@ -24,7 +24,7 @@ const tokenValidator = (req, res, next) => {
       });
     }
 
-    res.body.decoded = decoded;
+    req.body.decoded = decoded;
     
     return next();
   });
