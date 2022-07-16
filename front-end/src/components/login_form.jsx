@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import '../styles/login.css';
 
 const axios = require('axios').default;
@@ -13,6 +14,8 @@ class LoginForm extends Component {
       new_user_email: '',
       new_user_password: '',
       new_user_password_confirm: '',
+      loggedIn: false,
+      userId: 0,
     };
     this.handleChange = this.handleChange.bind(this);
     this.isValidLogin = this.isValidLogin.bind(this);
@@ -73,7 +76,16 @@ class LoginForm extends Component {
 
     const headers = { email, password };
 
-    axios.post('http://localhost:3007/user/login', headers);
+    axios
+      .post('http://localhost:3007/user/login', headers)
+      .then((response) => {
+        const { id, token } = response.data;
+        localStorage.setItem('token', token);
+        this.setState({ loggedIn: true, userId: id });
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   }
 
   createNewUser() {
@@ -88,13 +100,12 @@ class LoginForm extends Component {
     axios
       .post('http://localhost:3007/user', { ...headers })
       .then((response) => {
-        if (response.data.error) {
-          console.log(response.data.error);
-        }
-        console.log(response.data);
+        const { id, token } = response.data;
+        localStorage.setItem('token', token);
+        this.setState({ loggedIn: true, userId: id });
       })
       .catch((error) => {
-        console.log(error);
+        alert(error.response.data.message);
       });
   }
 
@@ -125,8 +136,10 @@ class LoginForm extends Component {
   }
 
   render() {
+    const { loggedIn, userId } = this.state;
     return (
       <div>
+        {loggedIn && <Navigate to={`/membros/${userId}`} />}
         <div className="form login">
           <div>
             <p>ACESSO EXCLUSIVO</p>

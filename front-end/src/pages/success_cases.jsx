@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
 import Cases from '../components/cases';
+import Footer from '../components/footer';
 
 class Success extends Component {
     render() {
@@ -8,6 +9,7 @@ class Success extends Component {
             <div>
                 <Header />
                 <Cases />
+                <Footer />
             </div>
         );
     }

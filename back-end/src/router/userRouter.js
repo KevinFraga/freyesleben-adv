@@ -13,6 +13,6 @@ router.post('/login', user.login);
 
 router.get('/email', user.getUserByEmail);
 
-router.get('/token', middleware.tokenValidator, user.tokenValidator);
+router.post('/token', middleware.tokenValidator, user.tokenValidator);
 
 module.exports = router;

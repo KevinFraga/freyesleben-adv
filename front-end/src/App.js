@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={ <Home /> } />
         <Route path="/inspiracao" element={ <Inspiration /> } />
         <Route path="/login" element={ <Login /> } />
-        <Route path="/exclusivo_membros" element={ <Exclusive /> } />
+        <Route path="/membros/:id" element={ <Exclusive /> } />
         <Route path="/especialidades" element={ <Specialty /> } />
         <Route path="/causas" element={ <Success /> } />
         <Route path="/quem_somos" element={ <WhoWeAre /> } />

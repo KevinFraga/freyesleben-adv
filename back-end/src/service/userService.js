@@ -40,7 +40,11 @@ const registerUser = async (userData) => {
 
   const resgister = await user.registerUser(encrypt);
 
-  return resgister;
+  const newUser = await user.getUserByEmail(resgister.email);
+
+  const token = middleware.tokenMaker(newUser);
+
+  return { id: newUser.id, token };
 };
 
 const getUsers = async () => await user.getUsers();

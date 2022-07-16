@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/header.css';
 
+const axios = require('axios').default;
+
 class Header extends Component {
   constructor() {
     super();
@@ -9,10 +11,33 @@ class Header extends Component {
       menu: false,
       loggedIn: false,
       featured: false,
+      userId: 0,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleFeatured = this.toggleFeatured.bind(this);
+    this.logout = this.logout.bind(this);
   }
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      axios
+        .post('http://localhost:3007/user/token', { token })
+        .then((response) => {
+          const { id } = response.data;
+          this.setState({ loggedIn: true, userId: id });
+        })
+        .catch((error) => {
+          alert(error.response.data.message);
+        });
+    }
+  }
+
+  logout = () => {
+    localStorage.removeItem('token');
+    this.setState({ loggedIn: false });
+  };
 
   toggleMenu = () => {
     this.setState({ menu: !this.state.menu });
@@ -22,11 +47,11 @@ class Header extends Component {
   toggleFeatured = () => this.setState({ featured: !this.state.featured });
 
   hamburguerMenu() {
-    const { loggedIn, menu, featured } = this.state;
+    const { loggedIn, menu, featured, userId } = this.state;
     return (
       <div className={menu ? 'open' : 'close'}>
         <ul className="menu-items">
-          <Link to={loggedIn ? '/conta' : '/login'}>
+          <Link to={loggedIn ? `/membros/${userId}` : '/login'}>
             <li>Minha Conta</li>
           </Link>
           <Link to="/quem_somos">
@@ -66,7 +91,7 @@ class Header extends Component {
           <Link to="/contato">
             <li>Contato</li>
           </Link>
-          <Link to="/">
+          <Link to="/" onClick={this.logout}>
             <li>Sair</li>
           </Link>
         </ul>
@@ -75,7 +100,7 @@ class Header extends Component {
   }
 
   render() {
-    const { menu, loggedIn } = this.state;
+    const { menu, loggedIn, userId } = this.state;
     return (
       <div>
         <div className="NavBar">
@@ -87,7 +112,7 @@ class Header extends Component {
             </div>
           </div>
           <img src="/logo.png" alt="logo" className="logo" />
-          <Link to={loggedIn ? '/conta' : '/login'}>
+          <Link to={loggedIn ? `/membros/${userId}` : '/login'}>
             <img src="/login-removebg-preview.png" alt="login" id="login" />
           </Link>
         </div>

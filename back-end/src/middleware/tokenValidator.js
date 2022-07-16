@@ -25,7 +25,7 @@ const tokenValidator = (req, _res, next) => {
     }
 
     req.body.decoded = decoded;
-    
+
     return next();
   });
 };
