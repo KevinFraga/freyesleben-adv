@@ -90,7 +90,7 @@ const login = async (userData) => {
     };
   }
 
-  const token = middleware.tokenMaker(value)
+  const token = middleware.tokenMaker(isRegistered)
 
   return { token };
 };
