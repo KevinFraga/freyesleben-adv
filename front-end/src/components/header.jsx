@@ -30,6 +30,7 @@ class Header extends Component {
         })
         .catch((error) => {
           alert(error.response.data.message);
+          this.setState({ loggedIn: false });
         });
     }
   }

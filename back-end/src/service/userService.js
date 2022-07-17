@@ -120,7 +120,11 @@ const validateToken = async (userData) => {
     };
   }
 
-  return { id: isRegistered.id, token: userData.token };
+  return {
+    id: isRegistered.id,
+    token: userData.token,
+    name: userData.decoded.name,
+  };
 };
 
 module.exports = {
