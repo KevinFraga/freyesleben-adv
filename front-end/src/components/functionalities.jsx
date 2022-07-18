@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import '../styles/functionalities.css';
 
 const axios = require('axios').default;
@@ -25,7 +25,7 @@ class Functionalities extends Component {
           const { id, name } = response.data;
           this.setState({ name, userId: id, loggedIn: true, loading: false });
         })
-        .catch((error) => {
+        .catch((_error) => {
           localStorage.removeItem('token');
           this.setState({ loggedIn: false, loading: false });
         });
@@ -39,7 +39,7 @@ class Functionalities extends Component {
     return (
       <div>
         {!loggedIn && !loading && <Navigate to="/" />}
-        <h1 className='user-name'>Olá, {name}</h1>
+        <h1 className="user-name">Olá, {name}</h1>
         <div className="func-container">
           <div className="func-row">
             <div className="func-col">
@@ -47,8 +47,10 @@ class Functionalities extends Component {
               <span>&rsaquo;</span>
             </div>
             <div className="func-col">
-              <span>Upload de Documentos</span>
-              <span>&rsaquo;</span>
+              <Link to="upload">
+                <span>Upload de Documentos</span>
+                <span>&rsaquo;</span>
+              </Link>
             </div>
           </div>
           <div className="func-row">
@@ -56,6 +58,7 @@ class Functionalities extends Component {
               <span>Assinar Contrato</span>
               <span>&rsaquo;</span>
             </div>
+
             <div className="func-col">
               <span>Minha Biblioteca</span>
               <span>&rsaquo;</span>

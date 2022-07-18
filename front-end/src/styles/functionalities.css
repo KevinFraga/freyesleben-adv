@@ -29,6 +29,17 @@
   text-shadow: 1px 1px black;
 }
 
+.func-col a {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 100%;
+}
+
 .user-name {
   font-weight: bold;
   font-family: Helvetica, sans-serif;

@@ -24,10 +24,11 @@ class LoginForm extends Component {
     this.createNewUser = this.createNewUser.bind(this);
   }
 
-  handleChange = ({ target }) =>
+  handleChange({ target }) {
     this.setState({
       [target.name]: target.value,
     });
+  }
 
   isValidLogin() {
     const { password, email } = this.state;
@@ -98,7 +99,7 @@ class LoginForm extends Component {
     };
 
     axios
-      .post('http://localhost:3007/user', { ...headers })
+      .post('http://localhost:3007/user', headers)
       .then((response) => {
         const { id, token } = response.data;
         localStorage.setItem('token', token);
