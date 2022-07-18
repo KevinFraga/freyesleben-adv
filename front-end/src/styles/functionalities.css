@@ -1,0 +1,39 @@
+.func-container {
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  margin: 5% 10%;
+  padding: 1rem;
+  width: 80%;
+}
+
+.func-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.func-col {
+  align-items: center;
+  background-color: #033e8d;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  font-family: Helvetica, sans-serif;
+  font-size: 2.3rem;
+  height: 20rem;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 40%;
+  text-shadow: 1px 1px black;
+}
+
+.user-name {
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+  color: #033e8d;
+  font-size: 2rem;
+  margin: 1rem;
+  text-shadow: 1px 1px black;
+}

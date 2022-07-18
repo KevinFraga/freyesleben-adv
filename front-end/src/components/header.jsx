@@ -12,6 +12,7 @@ class Header extends Component {
       loggedIn: false,
       featured: false,
       userId: 0,
+      loading: true,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleFeatured = this.toggleFeatured.bind(this);
@@ -26,12 +27,15 @@ class Header extends Component {
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
           const { id } = response.data;
-          this.setState({ loggedIn: true, userId: id });
+          this.setState({ userId: id, loggedIn: true, loading: false });
         })
         .catch((error) => {
+          localStorage.removeItem('token');
           alert(error.response.data.message);
-          this.setState({ loggedIn: false });
+          this.setState({ loggedIn: false, loading: false });
         });
+    } else {
+      this.setState({ loggedIn: false, loading: false });
     }
   }
 

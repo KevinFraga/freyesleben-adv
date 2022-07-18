@@ -19,7 +19,7 @@ const tokenValidator = (req, _res, next) => {
       return next({
         error: {
           statusCode: 401,
-          message: err,
+          message: 'Login expired',
         },
       });
     }

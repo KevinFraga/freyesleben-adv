@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
+import '../styles/functionalities.css';
 
 const axios = require('axios').default;
 
@@ -25,7 +26,7 @@ class Functionalities extends Component {
           this.setState({ name, userId: id, loggedIn: true, loading: false });
         })
         .catch((error) => {
-          alert(error.response.data.message);
+          localStorage.removeItem('token');
           this.setState({ loggedIn: false, loading: false });
         });
     } else {
@@ -38,8 +39,29 @@ class Functionalities extends Component {
     return (
       <div>
         {!loggedIn && !loading && <Navigate to="/" />}
-        <h1>Olá, {name}</h1>
-        <p>This is an example of a functionality component.</p>
+        <h1 className='user-name'>Olá, {name}</h1>
+        <div className="func-container">
+          <div className="func-row">
+            <div className="func-col">
+              <span>Consultar Processos</span>
+              <span>&rsaquo;</span>
+            </div>
+            <div className="func-col">
+              <span>Upload de Documentos</span>
+              <span>&rsaquo;</span>
+            </div>
+          </div>
+          <div className="func-row">
+            <div className="func-col">
+              <span>Assinar Contrato</span>
+              <span>&rsaquo;</span>
+            </div>
+            <div className="func-col">
+              <span>Minha Biblioteca</span>
+              <span>&rsaquo;</span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
