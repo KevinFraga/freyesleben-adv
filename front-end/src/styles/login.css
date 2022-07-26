@@ -1,0 +1,97 @@
+.form {
+  display: flex;
+  font-family: Helvetica, sans-serif;
+  flex-direction: column;
+  position: relative;
+  font-weight: bold;
+  width: 50%;
+  left: 25%;
+  margin: 2rem 0;
+}
+
+.form p {
+  font-size: 1.5rem;
+}
+
+.login {
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login input {
+  background-color: #033e8d;
+}
+
+.login label {
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+.login p {
+  color: #03318d;
+  text-shadow: 1px 1px black;
+  text-align: center;
+}
+
+.new-user {
+  color: #03318d;
+  text-shadow: 1px 1px black;
+
+}
+
+.new-user-form {
+  width: 100%;
+}
+
+.form input {
+  height: 3rem;
+  width: 100%;
+  position: relative;
+  font-size: 2.2rem;
+  text-align: left;
+}
+
+.form label {
+  position: relative;
+  left: 0.5rem;
+  top: 0.9rem;
+  height: 1rem;
+  z-index: 3;
+  font-size: small;
+}
+
+.new-user-password-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.new-user-password {
+  width: 70%;
+}
+
+.new-user-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+.button {
+  position: relative;
+  height: 3rem;
+  width: 100%;
+  margin: 1rem;
+  font-family: Helvetica, sans-serif;
+  font-size: large;
+}
+
+.login-button {
+  background-color: #033e8d;
+}
+
+.new-user-button {
+  background-color: white;
+}

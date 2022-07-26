@@ -1,5 +1,0 @@
-Front-end Online Store: https://github.com/tryber/sd-09-project-frontend-online-store/pull/149/files#diff-a6b0067864edc3723e242deb1f03dbbf5904619a24c53a9d5448886b93de49ff
-
-Trybe Wallet: https://github.com/tryber/sd-09-project-trybewallet/pull/124/files#diff-8c468c347b974539dbc7411567675397475e1aeac509adf899831746084c1179
-
-App de Receitas: https://github.com/tryber/sd-09-project-recipes-app/pull/680/files#diff-8830dc7811ccc8c048f32901c5ab86cd08ee4f01d2b5223184d07253f27ed256
