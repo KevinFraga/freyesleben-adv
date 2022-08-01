@@ -9,11 +9,12 @@ class Uploader extends Component {
     this.state = {
       loading: true,
       file: '',
-      fileName: '',
+      fileType: 'RG',
       loggedIn: false,
       userId: 0,
     };
     this.handleFile = this.handleFile.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
   }
 
@@ -39,18 +40,27 @@ class Uploader extends Component {
   handleFile({ target }) {
     this.setState({
       file: target.files[0],
-      fileName: target.files[0].name,
+    });
+  }
+
+  handleSelect({ target }) {
+    this.setState({
+      fileType: target.value,
     });
   }
 
   handleUpload() {
-    const { file, fileName, userId } = this.state;
+    const { file, fileType, userId } = this.state;
+    const token = localStorage.getItem('token');
+    
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("fileName", fileName);
-
+    formData.append('fileType', fileType);
+    formData.append('userId', userId);
+    formData.append('token', token);
+    formData.append('file', file);
+    
     axios
-      .post(`http://localhost:3007/user/${userId}/file/upload`, formData)
+      .post(`http://localhost:3007/user/${userId}/file/upload`, formData, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
       .then((response) => {
         alert(response.data.message);
       })
@@ -60,10 +70,17 @@ class Uploader extends Component {
   }
 
   render() {
+    const fileTypes = ['RG', 'CPF', 'CNH', 'CTPS', 'Contrato', 'Comprovante de Residência', 'Carta de Aposentadoria', 'Procuração', 'Termo de Hipossuficiência', 'Termo de Renúncia'];
     return (
       <div>
         <div className="upload-container">
-          <input type="file" onChange={this.handleFile} />
+          <input type="file" onChange={this.handleFile} name="file" />
+          <select name='fileType' onChange={this.handleSelect}>
+            {fileTypes.map((type) => <option key={type} value={type}>{type}</option>)}
+          </select>
+          <button type="button" onClick={this.handleUpload}>
+            Enviar
+          </button>
         </div>
       </div>
     );

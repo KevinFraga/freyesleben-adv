@@ -55,12 +55,12 @@ class Functionalities extends Component {
           </div>
           <div className="func-row">
             <div className="func-col">
-              <span>Assinar Contrato</span>
+              <span>Acessar Contrato</span>
               <span>&rsaquo;</span>
             </div>
 
             <div className="func-col">
-              <span>Minha Biblioteca</span>
+              <span>Download de Documentos e Processos</span>
               <span>&rsaquo;</span>
             </div>
           </div>
