@@ -40,4 +40,6 @@ router.post(
   file.uploader
 );
 
+router.get('/:id/file/download/:fileType', file.downloader);
+
 module.exports = router;

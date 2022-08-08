@@ -6,6 +6,8 @@ import Exclusive from "./pages/member_exclusive";
 import Success from "./pages/success_cases";
 import WhoWeAre from "./pages/who_we_are";
 import Upload from "./pages/upload";
+import Download from "./pages/download";
+import Blog from "./pages/blog";
 import './styles/app.css';
 
 function App() {
@@ -16,8 +18,10 @@ function App() {
         <Route path="/login" element={ <Login /> } />
         <Route path="/membros/:id" element={ <Exclusive /> } />
         <Route path="/membros/:id/upload" element={ <Upload /> } />
+        <Route path="/membros/:id/download" element={ <Download /> } />
         <Route path="/causas" element={ <Success /> } />
         <Route path="/quem_somos" element={ <WhoWeAre /> } />
+        <Route path="/blog" element={ <Blog /> } />
       </Routes>
     </BrowserRouter>
   );

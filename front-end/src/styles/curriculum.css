@@ -6,8 +6,38 @@
     font-weight: 700;
 }
 
+.subtitle {
+    color: #03318d;
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: relative;
+    bottom: 3rem;
+    left: 50%;
+}
+
+.titleBox {
+    margin: 1rem 10%;
+    width: 80%;
+}
+
 .important {
     display: block;
+    border: solid 2px #033E8D;
+    color: #03318d;
+    font-family: Helvetica, sans-serif;
+    left: 7%;
+    list-style: none;
+    margin: 1rem 0;
+    position: relative;
+    text-align: left;
+    text-shadow: 1px 1px black;
+    width: 80%;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: solid 2px #033E8D;
     color: #03318d;
     font-family: Helvetica, sans-serif;
@@ -34,10 +64,31 @@
     justify-content: center;
 }
 
+.p-img {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0.8rem;
+}
+
+.p-name {
+    height: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 1rem;
+}
+
 .c-img img {
     border-radius: 100%;
     margin-top: 2rem;
     width: 15rem;
+}
+
+.p-img img {
+    border-radius: 100%;
+    margin-top: 2rem;
+    width: 12rem;
 }
 
 .c-text {
@@ -45,6 +96,12 @@
     line-height: 2rem;
     margin: 5%;
     width: 80%;
+}
+
+.p-text {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    margin: 1rem;
 }
 
 .line-minor {

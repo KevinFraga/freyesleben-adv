@@ -15,6 +15,22 @@ const uploader = async (fileData) => {
   return { message: `${data.fileName} recebido com sucesso` };
 };
 
+const downloader = async (id, fileType) => {
+  const data = await file.findFile(id, fileType);
+
+  if (!data) {
+    return {
+      error: {
+        statusCode: 404,
+        message: 'File not found',
+      },
+    };
+  }
+
+  return data;
+}
+
 module.exports = {
   uploader,
+  downloader,
 };

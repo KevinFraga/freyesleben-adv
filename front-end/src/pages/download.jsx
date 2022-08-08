@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
-import Cases from '../components/cases';
 import Footer from '../components/footer';
+import Downloader from '../components/downloader';
 
-class Success extends Component {
+class Download extends Component {
   render() {
     return (
       <div>
         <Header />
-        <Cases />
+        <Downloader />
         <Footer />
       </div>
     );
   }
 }
 
-export default Success;
+export default Download;

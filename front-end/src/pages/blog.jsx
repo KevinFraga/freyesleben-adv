@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
-import Cases from '../components/cases';
 import Footer from '../components/footer';
+import BlogPosts from '../components/blogPosts';
 
-class Success extends Component {
+class Blog extends Component {
   render() {
     return (
       <div>
         <Header />
-        <Cases />
+        <BlogPosts />
         <Footer />
       </div>
     );
   }
 }
 
-export default Success;
+export default Blog;

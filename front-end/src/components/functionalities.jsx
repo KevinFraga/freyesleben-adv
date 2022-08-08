@@ -60,8 +60,10 @@ class Functionalities extends Component {
             </div>
 
             <div className="func-col">
-              <span>Download de Documentos e Processos</span>
-              <span>&rsaquo;</span>
+              <Link to="download">
+                <span>Download de Documentos e Processos</span>
+                <span>&rsaquo;</span>
+              </Link>
             </div>
           </div>
         </div>
