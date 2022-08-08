@@ -1,6 +1,7 @@
 const express = require('express');
-const { required } = require('joi');
 const multer = require('multer');
+const middleware = require('../middleware');
+const { user, file } = require('../controller');
 
 const router = express.Router();
 
@@ -17,10 +18,6 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
 });
-
-const { user, file } = require('../controller');
-
-const middleware = require('../middleware');
 
 router.post('/', user.registerUser);
 
