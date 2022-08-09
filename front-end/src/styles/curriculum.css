@@ -41,7 +41,7 @@
     border: solid 2px #033E8D;
     color: #03318d;
     font-family: Helvetica, sans-serif;
-    left: 7%;
+    left: 10%;
     list-style: none;
     margin: 1rem 0;
     position: relative;
@@ -67,7 +67,7 @@
 .p-img {
     align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     margin: 0.8rem;
 }
@@ -102,6 +102,7 @@
     font-size: 1.2rem;
     line-height: 2rem;
     margin: 1rem;
+    white-space: pre-line;
 }
 
 .line-minor {

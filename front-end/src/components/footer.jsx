@@ -11,15 +11,15 @@ class Footer extends Component {
           </div>
           <div>
             <div className='icon-container'>
-              <img className='icon' src="/phone.png" alt="phone-icon" />
+              <img className='icon' src="/phone.svg" alt="phone-icon" />
               <p>+55 21 3XXX XXXX</p>
             </div>
             <div className='icon-container'>
-              <img className='icon' src="/email.png" alt="email-icon" />
+              <img className='icon' src="/email.svg" alt="email-icon" />
               <p>contato@freyesleben.adv.br</p>
             </div>
             <div className='icon-container'>
-              <img className='icon' src="/office.png" alt="office-icon" />
+              <img className='icon' src="/office.svg" alt="office-icon" />
               <p>Rua Nanana, XXX Sala ZZZ - Centro - Rio de Janeiro, RJ</p>
             </div>
           </div>

@@ -8,6 +8,7 @@ import WhoWeAre from "./pages/who_we_are";
 import Upload from "./pages/upload";
 import Download from "./pages/download";
 import Blog from "./pages/blog";
+import BlogNew from "./pages/blogNew";
 import './styles/app.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/causas" element={ <Success /> } />
         <Route path="/quem_somos" element={ <WhoWeAre /> } />
         <Route path="/blog" element={ <Blog /> } />
+        <Route path="/blog/novo" element={ <BlogNew /> } />
       </Routes>
     </BrowserRouter>
   );
