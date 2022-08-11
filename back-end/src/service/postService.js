@@ -15,7 +15,10 @@ const newPost = async (postData) => {
   return data;
 };
 
+const deletePost = async (postId) => await post.deletePost(postId);
+
 module.exports = {
   getAll,
   newPost,
+  deletePost,
 };

@@ -10,12 +10,21 @@ class BlogPosts extends Component {
     this.state = {
       posts: [],
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     axios.get('http://localhost:3007/post').then((response) => {
       this.setState({ posts: response.data });
     });
+  }
+
+  handleDelete({ target }) {
+    const postId = target.name;
+
+    axios
+      .delete(`http://localhost:3007/post/${postId}`)
+      .then(() => window.location.reload(false));
   }
 
   render() {
@@ -40,6 +49,14 @@ class BlogPosts extends Component {
             <div className="p-text">
               <p>{post.text}</p>
             </div>
+            <button
+              type="button"
+              className="p-delete"
+              name={post.id}
+              onClick={this.handleDelete}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>
