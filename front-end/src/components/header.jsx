@@ -12,7 +12,6 @@ class Header extends Component {
       loggedIn: false,
       featured: false,
       userId: 0,
-      loading: true,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleFeatured = this.toggleFeatured.bind(this);
@@ -21,27 +20,28 @@ class Header extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    const { userId } = this.state;
 
-    if (token) {
+    if (token && !userId) {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
           const { id } = response.data;
-          this.setState({ userId: id, loggedIn: true, loading: false });
+          this.setState({ userId: id, loggedIn: true });
         })
         .catch((error) => {
           localStorage.removeItem('token');
           alert(error.response.data.message);
-          this.setState({ loggedIn: false, loading: false });
+          this.setState({ loggedIn: false  });
         });
     } else {
-      this.setState({ loggedIn: false, loading: false });
+      this.setState({ loggedIn: false });
     }
   }
 
   logout = () => {
     localStorage.removeItem('token');
-    this.setState({ loggedIn: false });
+    this.setState({ loggedIn: false, userId: 0 });
   };
 
   toggleMenu = () => {

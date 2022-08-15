@@ -9,14 +9,34 @@ class BlogPosts extends Component {
     super();
     this.state = {
       posts: [],
+      loading: true,
+      userId: 0,
+      role: '',
     };
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3007/post').then((response) => {
-      this.setState({ posts: response.data });
-    });
+    const token = localStorage.getItem('token');
+    const { userId, loading } = this.state;
+
+    if (loading) {
+      axios.get('http://localhost:3007/post').then((response) => {
+        this.setState({ posts: response.data, loading: false });
+      });
+    }
+
+    if (token && !userId) {
+      axios
+        .post('http://localhost:3007/user/token', { token })
+        .then((response) => {
+          const { id, name, role } = response.data;
+          this.setState({ name, userId: id, role });
+        })
+        .catch((_error) => {
+          localStorage.removeItem('token');
+        });
+    }
   }
 
   handleDelete({ target }) {
@@ -28,13 +48,14 @@ class BlogPosts extends Component {
   }
 
   render() {
-    const { posts } = this.state;
+    const { posts, role } = this.state;
+    const isAdmin = role === 'admin';
     return (
       <div>
         <div className="titleBox">
           <p className="title">BLOG DO ADVOGADO</p>
           <p className="subtitle">O que penso sobre...</p>
-          <Link to="novo">Novo Post</Link>
+          {isAdmin && <Link to="novo">Novo Post</Link>}
         </div>
         {posts.map((post) => (
           <div className="post">
@@ -49,14 +70,16 @@ class BlogPosts extends Component {
             <div className="p-text">
               <p>{post.text}</p>
             </div>
-            <button
-              type="button"
-              className="p-delete"
-              name={post.id}
-              onClick={this.handleDelete}
-            >
-              X
-            </button>
+            {isAdmin && (
+              <button
+                type="button"
+                className="p-delete"
+                name={post.id}
+                onClick={this.handleDelete}
+              >
+                X
+              </button>
+            )}
           </div>
         ))}
       </div>

@@ -37,7 +37,7 @@ class Hub extends Component {
                     <ul class="slides">
                         <li className={(slide === 1) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide1.png" alt="slide" />
+                                <img src="/slide1.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -51,7 +51,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 2) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide2.png" alt="slide" />
+                                <img src="/slide2.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -65,7 +65,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 3) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide3.png" alt="slide" />
+                                <img src="/slide3.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -79,7 +79,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 4) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide4.png" alt="slide" />
+                                <img src="/slide4.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -93,7 +93,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 5) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide5.png" alt="slide" />
+                                <img src="/slide5.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -107,7 +107,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 6) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide6.png" alt="slide" />
+                                <img src="/slide6.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -121,7 +121,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 7) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide7.png" alt="slide" />
+                                <img src="/slide7.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -135,7 +135,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 8) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide8.png" alt="slide" />
+                                <img src="/slide8.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -149,7 +149,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 9) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide9.png" alt="slide" />
+                                <img src="/slide9.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -163,7 +163,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 10) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide10.png" alt="slide" />
+                                <img src="/slide10.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -177,7 +177,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 11) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide11.png" alt="slide" />
+                                <img src="/slide11.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -191,7 +191,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 12) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide12.png" alt="slide" />
+                                <img src="/slide12.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -205,7 +205,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 13) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide13.png" alt="slide" />
+                                <img src="/slide13.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">
@@ -219,7 +219,7 @@ class Hub extends Component {
                         </li>
                         <li className={(slide === 14) ? 'selected' : 'not'}>
                             <div class="slide-image">
-                                <img src="/slide14.png" alt="slide" />
+                                <img src="/slide14.jpeg" alt="slide" />
                             </div>
                             <div className="text-container">
                                 <div className="slide-text">

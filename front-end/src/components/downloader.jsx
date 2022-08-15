@@ -7,44 +7,40 @@ class Downloader extends Component {
   constructor() {
     super();
     this.state = {
-      loading: true,
-      loggedIn: false,
       userId: 0,
+      role: '',
     };
-  
+
     this.handleDownload = this.handleDownload.bind(this);
   }
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    const { userId } = this.state;
 
-    if (token) {
+    if (token && !userId) {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id } = response.data;
-          this.setState({ userId: id, loggedIn: true, loading: false });
+          const { id, role } = response.data;
+          this.setState({ userId: id, role });
         })
         .catch((_error) => {
           localStorage.removeItem('token');
-          this.setState({ loggedIn: false, loading: false });
         });
-    } else {
-      this.setState({ loggedIn: false, loading: false });
     }
   }
 
-  handleDownload() {    
+  handleDownload() {
     const { userId } = this.state;
 
-    axios
-      .get(`http://localhost:3007/user/${userId}/file/download/CNH`);
-      // .then((response) => {
-      //   alert(response.data.message);
-      // })
-      // .catch((error) => {
-      //   alert(error.response.data.message);
-      // });
+    axios.get(`http://localhost:3007/user/${userId}/file/download/CNH`);
+    // .then((response) => {
+    //   alert(response.data.message);
+    // })
+    // .catch((error) => {
+    //   alert(error.response.data.message);
+    // });
   }
 
   render() {

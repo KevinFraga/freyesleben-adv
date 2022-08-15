@@ -12,18 +12,20 @@ class Functionalities extends Component {
       userId: 0,
       loggedIn: false,
       loading: true,
+      role: '',
     };
   }
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    const { userId } = this.state;
 
-    if (token) {
+    if (token && !userId) {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, name } = response.data;
-          this.setState({ name, userId: id, loggedIn: true, loading: false });
+          const { id, name, role } = response.data;
+          this.setState({ name, userId: id, loggedIn: true, loading: false, role });
         })
         .catch((_error) => {
           localStorage.removeItem('token');

@@ -44,7 +44,7 @@ const registerUser = async (userData) => {
 
   const token = middleware.tokenMaker(newUser);
 
-  return { id: newUser.id, token };
+  return { id: newUser.id, token, role: newUser.role};
 };
 
 const getUsers = async () => await user.getUsers();
@@ -96,7 +96,7 @@ const login = async (userData) => {
 
   const token = middleware.tokenMaker(isRegistered);
 
-  return { id: isRegistered.id, token };
+  return { id: isRegistered.id, token, role: isRegistered.role };
 };
 
 const validateToken = async (userData) => {
@@ -124,6 +124,7 @@ const validateToken = async (userData) => {
     id: isRegistered.id,
     token: userData.token,
     name: userData.decoded.name,
+    role: isRegistered.role,
   };
 };
 

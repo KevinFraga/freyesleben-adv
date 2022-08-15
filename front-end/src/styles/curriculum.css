@@ -114,3 +114,10 @@
     border-radius: 10rem;
     background: #043a7c;
 }
+
+.p-delete {
+    position: relative;
+    width: 10%;
+    left: 88%;
+    margin: 1%;
+}
