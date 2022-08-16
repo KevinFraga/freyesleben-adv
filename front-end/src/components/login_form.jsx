@@ -30,6 +30,12 @@ class LoginForm extends Component {
     });
   }
 
+  backlogo = () => (
+    <div className="backlogo-container">
+      <img src="/logo.png" alt="logo" />
+    </div>
+  );
+
   isValidLogin() {
     const { password, email } = this.state;
 
@@ -140,6 +146,7 @@ class LoginForm extends Component {
     const { loggedIn, userId } = this.state;
     return (
       <div>
+        {this.backlogo()}
         {loggedIn && <Navigate to={`/membros/${userId}`} />}
         <div className="form login">
           <div>

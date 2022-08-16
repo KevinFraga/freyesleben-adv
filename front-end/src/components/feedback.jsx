@@ -4,7 +4,7 @@ import '../styles/curriculum.css';
 
 const axios = require('axios').default;
 
-class BlogPosts extends Component {
+class Feedback extends Component {
   constructor() {
     super();
     this.state = {
@@ -21,7 +21,7 @@ class BlogPosts extends Component {
     const { userId, loading } = this.state;
 
     if (loading) {
-      axios.get('http://localhost:3007/post').then((response) => {
+      axios.get('http://localhost:3007/post/feedback').then((response) => {
         this.setState({ posts: response.data, loading: false });
       });
     }
@@ -43,7 +43,7 @@ class BlogPosts extends Component {
     const postId = target.name;
 
     axios
-      .delete(`http://localhost:3007/post/${postId}`)
+      .delete(`http://localhost:3007/post/feedback/${postId}`)
       .then(() => window.location.reload(false));
   }
 
@@ -54,7 +54,7 @@ class BlogPosts extends Component {
   );
 
   render() {
-    const { posts, role, loading } = this.state;
+    const { posts, role, loading, userId } = this.state;
     const isAdmin = role === 'admin';
     const isEmpty = posts.length === 0;
 
@@ -62,20 +62,18 @@ class BlogPosts extends Component {
       <div>
         {!isEmpty && this.backlogo()}
         <div className="titleBox">
-          <p className="title">BLOG DO ADVOGADO</p>
-          <p className="subtitle">O que penso sobre...</p>
-          {isAdmin && (
-            <button type="button" className="p-button">
-              <Link to="novo">Novo Post</Link>
-            </button>
-          )}
+          <p className="title">Depoimentos dos Clientes</p>
+          <p className="subtitle">O que andam falando de nós...</p>
+          <button className="p-button" type="button">
+            <Link to="novo">Novo Depoimento</Link>
+          </button>
         </div>
         {!loading &&
           posts.map((post) => (
             <div className="post">
               <div className="p-img">
-                <p className="p-name">Alexandre Guerrieri Freyesleben</p>
-                <img src="/Alexandre_sem_fundo.png" alt="alexandre" />
+                <p className="p-name">{post.name}</p>
+                <img src="/login-removebg-preview.png" alt="user" />
               </div>
               <div className="p-img">
                 <p className="p-name">{post.title}</p>
@@ -84,7 +82,7 @@ class BlogPosts extends Component {
               <div className="p-text">
                 <p>{post.text}</p>
               </div>
-              {isAdmin && (
+              {(isAdmin || userId === post.userId) && (
                 <button
                   type="button"
                   className="p-button"
@@ -101,4 +99,4 @@ class BlogPosts extends Component {
   }
 }
 
-export default BlogPosts;
+export default Feedback;

@@ -11,6 +11,7 @@ class Header extends Component {
       menu: false,
       loggedIn: false,
       featured: false,
+      alerted: false,
       userId: 0,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -20,9 +21,9 @@ class Header extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
-    const { userId } = this.state;
+    const { userId, alerted } = this.state;
 
-    if (token && !userId) {
+    if (token && !userId && !alerted) {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
@@ -31,11 +32,9 @@ class Header extends Component {
         })
         .catch((error) => {
           localStorage.removeItem('token');
+          this.setState({ loggedIn: false, alerted: true  });
           alert(error.response.data.message);
-          this.setState({ loggedIn: false  });
         });
-    } else {
-      this.setState({ loggedIn: false });
     }
   }
 

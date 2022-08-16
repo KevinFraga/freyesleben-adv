@@ -7,6 +7,8 @@ import Success from "./pages/success_cases";
 import WhoWeAre from "./pages/who_we_are";
 import Upload from "./pages/upload";
 import Download from "./pages/download";
+import Feed from "./pages/feed";
+import FeedNew from "./pages/feedNew";
 import Blog from "./pages/blog";
 import BlogNew from "./pages/blogNew";
 import './styles/app.css';
@@ -24,6 +26,8 @@ function App() {
         <Route path="/quem_somos" element={ <WhoWeAre /> } />
         <Route path="/blog" element={ <Blog /> } />
         <Route path="/blog/novo" element={ <BlogNew /> } />
+        <Route path="/depoimentos" element={ <Feed /> } />
+        <Route path="/depoimentos/novo" element={ <FeedNew /> } />
       </Routes>
     </BrowserRouter>
   );

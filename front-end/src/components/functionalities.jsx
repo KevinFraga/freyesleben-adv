@@ -36,10 +36,17 @@ class Functionalities extends Component {
     }
   }
 
+  backlogo = () => (
+    <div className="backlogo-container">
+      <img src="/logo.png" alt="logo" />
+    </div>
+  );
+
   render() {
     const { name, loggedIn, loading } = this.state;
     return (
       <div>
+        {this.backlogo()}
         {!loggedIn && !loading && <Navigate to="/" />}
         <h1 className="user-name">Olá, {name}</h1>
         <div className="func-container">
