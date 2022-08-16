@@ -68,6 +68,12 @@ class Uploader extends Component {
       });
   }
 
+  backlogo = () => (
+    <div className="backlogo-container">
+      <img src="/logo.png" alt="logo" />
+    </div>
+  );
+
   render() {
     const fileTypes = [
       'RG',
@@ -83,6 +89,7 @@ class Uploader extends Component {
     ];
     return (
       <div>
+        {this.backlogo()}
         <div className="upload-container">
           <input type="file" onChange={this.handleFile} name="file" />
           <select name="fileType" onChange={this.handleSelect}>
@@ -92,7 +99,11 @@ class Uploader extends Component {
               </option>
             ))}
           </select>
-          <button type="button" onClick={this.handleUpload}>
+          <button
+            type="button"
+            className="f-button"
+            onClick={this.handleUpload}
+          >
             Enviar
           </button>
         </div>

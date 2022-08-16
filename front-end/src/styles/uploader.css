@@ -1,0 +1,30 @@
+.upload-container {
+  display: flex;
+  font-family: Helvetica, sans-serif;
+  flex-direction: column;
+  position: relative;
+  font-weight: bold;
+  width: 80%;
+  left: 10%;
+  height: 65vh;
+  margin: 2rem 1rem;
+  justify-content: center;
+}
+
+.upload-container input, .upload-container select {
+  background-color: #033e8d;
+  color: white;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.f-button {
+  position: relative;
+  width: 18%;
+  left: 40%;
+  margin: 1%;
+  background-color: #03318d;
+  color: white;
+  font-size: 2rem;
+  height: 4rem;
+}

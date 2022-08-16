@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/uploader.css';
+import '../styles/login.css';
 
 const axios = require('axios').default;
 
@@ -31,6 +31,12 @@ class Downloader extends Component {
     }
   }
 
+  backlogo = () => (
+    <div className="backlogo-container">
+      <img src="/logo.png" alt="logo" />
+    </div>
+  );
+
   handleDownload() {
     const { userId } = this.state;
 
@@ -46,8 +52,13 @@ class Downloader extends Component {
   render() {
     return (
       <div>
+        {this.backlogo()}
         <div className="upload-container">
-          <button type="button" onClick={this.handleDownload}>
+          <button
+            type="button"
+            className="f-button"
+            onClick={this.handleDownload}
+          >
             Teste
           </button>
         </div>
