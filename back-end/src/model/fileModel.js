@@ -15,8 +15,8 @@ const findFile = async (id, fileType) => {
     [id, fileType]
   );
 
-  return data;
-}
+  return data[0];
+};
 
 module.exports = {
   registerFile,

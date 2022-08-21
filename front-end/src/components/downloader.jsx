@@ -40,13 +40,7 @@ class Downloader extends Component {
   handleDownload() {
     const { userId } = this.state;
 
-    axios.get(`http://localhost:3007/user/${userId}/file/download/CNH`);
-    // .then((response) => {
-    //   alert(response.data.message);
-    // })
-    // .catch((error) => {
-    //   alert(error.response.data.message);
-    // });
+    window.open(`http://localhost:3007/user/${userId}/file/download/CNH`);
   }
 
   render() {

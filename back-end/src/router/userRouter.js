@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const path = require('path');
 const middleware = require('../middleware');
 const { user, file } = require('../controller');
 
@@ -8,9 +9,9 @@ const router = express.Router();
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, './public'),
   filename: (req, _file, cb) => {
-    const name = `${req.body.userId}-${req.body.fileType}`;
+    const name = `${req.body.name}-${req.body.fileType}`;
     req.body.fileName = name;
-    req.body.filePath = `./public/${name}`;
+    req.body.filePath = path.resolve(`./public/${name}`);
     cb(null, name);
   },
 });

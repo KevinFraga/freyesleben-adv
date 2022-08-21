@@ -71,11 +71,13 @@ const sendEmail = async (emailData) => {
     },
   });
 
+  const emailText = text.split('\n').map((line) => (`<p>${line}</p>`)).join('');
+
   const mailOptions = {
     from: email,
     to: 'freyesleben.adv@gmail.com',
     subject: subject,
-    html: `<p>${text}</p><p>Enviado por ${name}</p>`,
+    html: `${emailText}<p>Enviado por ${name}</p>`,
   };
 
   const answer = await transporter.sendMail(mailOptions);
@@ -83,6 +85,8 @@ const sendEmail = async (emailData) => {
   const url = nodemailer.getTestMessageUrl(answer);
 
   console.log(url);
+
+  return { message: 'Email enviado com sucesso' };
 };
 
 module.exports = {

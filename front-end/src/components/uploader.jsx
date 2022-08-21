@@ -11,6 +11,7 @@ class Uploader extends Component {
       fileType: 'RG',
       userId: 0,
       role: '',
+      name: '',
     };
     this.handleFile = this.handleFile.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -25,8 +26,8 @@ class Uploader extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, role } = response.data;
-          this.setState({ userId: id, role });
+          const { id, role, name } = response.data;
+          this.setState({ userId: id, role, name });
         })
         .catch((_error) => {
           localStorage.removeItem('token');
@@ -47,12 +48,13 @@ class Uploader extends Component {
   }
 
   handleUpload() {
-    const { file, fileType, userId } = this.state;
+    const { file, fileType, userId, name } = this.state;
     const token = localStorage.getItem('token');
 
     const formData = new FormData();
     formData.append('fileType', fileType);
     formData.append('userId', userId);
+    formData.append('name', name);
     formData.append('token', token);
     formData.append('file', file);
 

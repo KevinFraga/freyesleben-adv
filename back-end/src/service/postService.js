@@ -57,7 +57,7 @@ const sendEmail = async (emailData) => {
 
   const data = await post.sendEmail(value);
 
-  return { message: 'Email enviado com sucesso'};
+  return data;
 }
 
 module.exports = {

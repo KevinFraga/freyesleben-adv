@@ -28,7 +28,7 @@ const downloader = async (id, fileType) => {
   }
 
   return data;
-}
+};
 
 module.exports = {
   uploader,

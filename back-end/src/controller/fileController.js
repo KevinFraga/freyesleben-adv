@@ -24,15 +24,13 @@ const downloader = async (req, res, next) => {
 
   if (fileData.error) return next(fileData);
 
-  const file = fs.createReadStream(fileData.path);
+  const fileReader = await fs.createReadStream(fileData.path);
 
-  const fileName = fileData.fileName;
+  res.setHeader('Content-Disposition', `attachment; filename="${fileData.name}.png"`);
 
-  res.setHeader('Content-Disposition', `attachment: filename="${fileName}"`);
+  res.setHeader('Content-Type', 'image/png');
 
-  await file.pipe(res);
-
-  return res.status(200);
+  return fileReader.pipe(res);
 };
 
 module.exports = {
