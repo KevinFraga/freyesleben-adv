@@ -12,6 +12,7 @@ import FeedNew from './pages/feedNew';
 import Blog from './pages/blog';
 import BlogNew from './pages/blogNew';
 import Partnerships from './pages/partnerships';
+import Contact from './pages/contact';
 import './styles/app.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/depoimentos" element={<Feed />} />
         <Route path="/depoimentos/novo" element={<FeedNew />} />
         <Route path="/parceiros" element={<Partnerships />} />
+        <Route path="/faleconosco" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

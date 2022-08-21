@@ -32,7 +32,7 @@ class Header extends Component {
         })
         .catch((error) => {
           localStorage.removeItem('token');
-          this.setState({ loggedIn: false, alerted: true  });
+          this.setState({ loggedIn: false, alerted: true });
           alert(error.response.data.message);
         });
     }
@@ -86,14 +86,11 @@ class Header extends Component {
           <Link to="/depoimentos">
             <li>Depoimentos</li>
           </Link>
-          <Link to="/faleconosco">
-            <li>Fale Conosco</li>
-          </Link>
           <Link to="/blog">
             <li>Blog</li>
           </Link>
-          <Link to="/contato">
-            <li>Contato</li>
+          <Link to="/faleconosco">
+            <li>Fale Conosco</li>
           </Link>
           <Link to="/" onClick={this.logout}>
             <li>Sair</li>

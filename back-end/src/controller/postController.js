@@ -40,6 +40,14 @@ const deleteFeedback = async (req, res, _next) => {
   return res.status(200).json(postData);
 };
 
+const sendEmail = async (req, res, next) => {
+  const emailData = await post.sendEmail(req.body);
+
+  if (emailData.error) return next(emailData);
+
+  return res.status(201).json(emailData);
+}
+
 module.exports = {
   getAllPosts,
   newPost,
@@ -47,4 +55,5 @@ module.exports = {
   getAllFeedbacks,
   newFeedback,
   deleteFeedback,
+  sendEmail,
 };

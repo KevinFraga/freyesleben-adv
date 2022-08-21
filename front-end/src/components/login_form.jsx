@@ -22,12 +22,24 @@ class LoginForm extends Component {
     this.isValidNewUser = this.isValidNewUser.bind(this);
     this.loginFunction = this.loginFunction.bind(this);
     this.createNewUser = this.createNewUser.bind(this);
+    this.handleEnterLogin = this.handleEnterLogin.bind(this);
+    this.handleEnterNewUser = this.handleEnterNewUser.bind(this);
   }
 
   handleChange({ target }) {
     this.setState({
       [target.name]: target.value,
     });
+  }
+
+  handleEnterLogin({ keyCode }) {
+    const enterKey = 13;
+    if (keyCode === enterKey && this.isValidLogin()) this.loginFunction();
+  }
+
+  handleEnterNewUser({ keyCode }) {
+    const enterKey = 13;
+    if (keyCode === enterKey && this.isValidNewUser()) this.createNewUser();
   }
 
   backlogo = () => (
@@ -133,11 +145,19 @@ class LoginForm extends Component {
     );
   }
 
-  createInput(type, title, className, kind) {
+  createInput(type, title, className, kind, registered) {
     return (
       <div className={className}>
         <label htmlFor={type}>{title}</label>
-        <input id={type} name={type} type={kind} onChange={this.handleChange} />
+        <input
+          id={type}
+          name={type}
+          type={kind}
+          onChange={this.handleChange}
+          onKeyDown={
+            registered ? this.handleEnterLogin : this.handleEnterNewUser
+          }
+        />
       </div>
     );
   }
@@ -153,8 +173,14 @@ class LoginForm extends Component {
             <p>ACESSO EXCLUSIVO</p>
             <p>ÁREA DE CLIENTES CADASTRADOS</p>
           </div>
-          {this.createInput('email', 'Email', 'login-form', 'email')}
-          {this.createInput('password', 'Senha', 'login-form', 'password')}
+          {this.createInput('email', 'Email', 'login-form', 'email', true)}
+          {this.createInput(
+            'password',
+            'Senha',
+            'login-form',
+            'password',
+            true
+          )}
           {this.createButton(true)}
         </div>
         <div className="form new-user">
@@ -167,13 +193,15 @@ class LoginForm extends Component {
             'new_user_name',
             'Nome Completo',
             'new-user-form',
-            'name'
+            'name',
+            false
           )}
           {this.createInput(
             'new_user_email',
             'Email',
             'new-user-form',
-            'email'
+            'email',
+            false
           )}
           <div className="new-user-password-container">
             <div className="new-user-password">
@@ -181,13 +209,15 @@ class LoginForm extends Component {
                 'new_user_password',
                 'Senha',
                 'new-user-form',
-                'password'
+                'password',
+                false
               )}
               {this.createInput(
                 'new_user_password_confirm',
                 'Confirmação de Senha',
                 'new-user-form',
-                'password'
+                'password',
+                false
               )}
             </div>
             <div className="new-user-button-container">

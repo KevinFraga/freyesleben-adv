@@ -12,6 +12,8 @@ router.post('/new', post.newPost);
 
 router.post('/feedback/new', post.newFeedback);
 
+router.post('/email', post.sendEmail);
+
 router.delete('/:postId', post.deletePost);
 
 router.delete('/feedback/:postId', post.deleteFeedback);

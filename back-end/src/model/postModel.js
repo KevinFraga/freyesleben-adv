@@ -1,5 +1,7 @@
 const connect = require('./connection');
 
+const nodemailer = require('nodemailer');
+
 const getAllPosts = async () => {
   const [data] = await connect.query(
     'SELECT p.id, p.author_id, u.name, p.title, p.text, DATE_FORMAT(p.created_at, "%d/%m/%y") AS date FROM posts p INNER JOIN users u ON p.author_id = u.id ORDER BY p.id DESC;'
@@ -54,6 +56,35 @@ const deleteFeedback = async (postId) => {
   return data;
 };
 
+const sendEmail = async (emailData) => {
+  const { name, subject, email, text } = emailData;
+
+  const testEmail = await nodemailer.createTestAccount();
+
+  const transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false,
+    auth: {
+      user: testEmail.user,
+      pass: testEmail.pass,
+    },
+  });
+
+  const mailOptions = {
+    from: email,
+    to: 'freyesleben.adv@gmail.com',
+    subject: subject,
+    html: `<p>${text}</p><p>Enviado por ${name}</p>`,
+  };
+
+  const answer = await transporter.sendMail(mailOptions);
+
+  const url = nodemailer.getTestMessageUrl(answer);
+
+  console.log(url);
+};
+
 module.exports = {
   getAllPosts,
   registerPost,
@@ -61,4 +92,5 @@ module.exports = {
   getAllFeedbacks,
   registerFeedback,
   deleteFeedback,
+  sendEmail,
 };
