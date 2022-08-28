@@ -1,13 +1,14 @@
 const { file } = require('../model');
 
 const uploader = async (fileData) => {
-  const { userId, fileType, fileName, filePath } = fileData;
+  const { userId, kind, fileName, filePath, contentType } = fileData;
 
   const newFile = {
     fileName,
-    fileType,
+    kind,
     userId,
     filePath,
+    contentType
   };
 
   const data = await file.registerFile(newFile);
@@ -30,7 +31,10 @@ const downloader = async (id, fileType) => {
   return data;
 };
 
+const getAllFiles = async (id) => await file.getAllFiles(id);
+
 module.exports = {
   uploader,
   downloader,
+  getAllFiles,
 };

@@ -68,7 +68,7 @@ class LoginForm extends Component {
       new_user_password_confirm,
     } = this.state;
 
-    const nameRegex = /^[A-Záâéêíîóôúû ]+$/i;
+    const nameRegex = /^[A-Záâéêíîóôúûç ]+$/i;
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9-]+\.[A-Z]{2,4}(\.[A-Z]{2})?$/i;
     const passwordRegex = /^.{6,25}$/;
 

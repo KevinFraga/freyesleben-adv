@@ -7,28 +7,21 @@ class Downloader extends Component {
   constructor() {
     super();
     this.state = {
-      userId: 0,
-      role: '',
+      files: [],
+      loading: true,
     };
 
     this.handleDownload = this.handleDownload.bind(this);
   }
 
   componentDidMount() {
-    const token = localStorage.getItem('token');
-    const { userId } = this.state;
+    const { userId } = this.props;
 
-    if (token && !userId) {
-      axios
-        .post('http://localhost:3007/user/token', { token })
-        .then((response) => {
-          const { id, role } = response.data;
-          this.setState({ userId: id, role });
-        })
-        .catch((_error) => {
-          localStorage.removeItem('token');
-        });
-    }
+    axios
+      .get(`http://localhost:3007/user/${userId}/file/download`)
+      .then((response) => {
+        this.setState({ files: response.data, loading: false });
+      });
   }
 
   backlogo = () => (
@@ -37,24 +30,33 @@ class Downloader extends Component {
     </div>
   );
 
-  handleDownload() {
-    const { userId } = this.state;
+  handleDownload({ target }) {
+    const { userId } = this.props;
 
-    window.open(`http://localhost:3007/user/${userId}/file/download/CNH`);
+    window.open(
+      `http://localhost:3007/user/${userId}/file/download/${target.name}`
+    );
   }
 
   render() {
+    const { files, loading } = this.state;
     return (
       <div>
         {this.backlogo()}
         <div className="upload-container">
-          <button
-            type="button"
-            className="f-button"
-            onClick={this.handleDownload}
-          >
-            Teste
-          </button>
+          {!loading && files.map((file) => (
+            <div key={file.name} className="downloader">
+              <p>{file.name}</p>
+              <button
+                type="button"
+                className="f-button"
+                name={file.kind}
+                onClick={this.handleDownload}
+              >
+                Download
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     );

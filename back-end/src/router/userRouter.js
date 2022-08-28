@@ -9,7 +9,7 @@ const router = express.Router();
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, './public'),
   filename: (req, _file, cb) => {
-    const name = `${req.body.name}-${req.body.fileType}`;
+    const name = `${req.body.name}-${req.body.kind}.${req.body.extension}`;
     req.body.fileName = name;
     req.body.filePath = path.resolve(`./public/${name}`);
     cb(null, name);
@@ -37,6 +37,8 @@ router.post(
   file.tokenValidator,
   file.uploader
 );
+
+router.get('/:id/file/download', file.getAllFiles);
 
 router.get('/:id/file/download/:fileType', file.downloader);
 

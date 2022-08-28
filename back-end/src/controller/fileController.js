@@ -26,15 +26,27 @@ const downloader = async (req, res, next) => {
 
   const fileReader = await fs.createReadStream(fileData.path);
 
-  res.setHeader('Content-Disposition', `attachment; filename="${fileData.name}.png"`);
+  res.setHeader(
+    'Content-Disposition',
+    `attachment; filename="${fileData.name}"`
+  );
 
-  res.setHeader('Content-Type', 'image/png');
+  res.setHeader('Content-Type', fileData.content_type);
 
   return fileReader.pipe(res);
+};
+
+const getAllFiles = async (req, res, _next) => {
+  const { id } = req.params;
+
+  const fileData = await file.getAllFiles(id);
+
+  return res.status(200).json(fileData);
 };
 
 module.exports = {
   uploader,
   tokenValidator,
   downloader,
+  getAllFiles,
 };

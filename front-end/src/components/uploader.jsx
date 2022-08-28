@@ -8,31 +8,12 @@ class Uploader extends Component {
     super();
     this.state = {
       file: '',
-      fileType: 'RG',
-      userId: 0,
-      role: '',
+      kind: 'RG',
       name: '',
     };
     this.handleFile = this.handleFile.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
-  }
-
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const { userId } = this.state;
-
-    if (token && !userId) {
-      axios
-        .post('http://localhost:3007/user/token', { token })
-        .then((response) => {
-          const { id, role, name } = response.data;
-          this.setState({ userId: id, role, name });
-        })
-        .catch((_error) => {
-          localStorage.removeItem('token');
-        });
-    }
   }
 
   handleFile({ target }) {
@@ -43,16 +24,19 @@ class Uploader extends Component {
 
   handleSelect({ target }) {
     this.setState({
-      fileType: target.value,
+      kind: target.value,
     });
   }
 
   handleUpload() {
-    const { file, fileType, userId, name } = this.state;
+    const { file, kind, name } = this.state;
+    const { userId } = this.props;
     const token = localStorage.getItem('token');
 
     const formData = new FormData();
-    formData.append('fileType', fileType);
+    formData.append('kind', kind);
+    formData.append('contentType', file.type);
+    formData.append('extension', file.name.slice(-3));
     formData.append('userId', userId);
     formData.append('name', name);
     formData.append('token', token);
@@ -94,7 +78,7 @@ class Uploader extends Component {
         {this.backlogo()}
         <div className="upload-container">
           <input type="file" onChange={this.handleFile} name="file" />
-          <select name="fileType" onChange={this.handleSelect}>
+          <select name="kind" onChange={this.handleSelect}>
             {fileTypes.map((type) => (
               <option key={type} value={type}>
                 {type}

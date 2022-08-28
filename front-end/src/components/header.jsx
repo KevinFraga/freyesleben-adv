@@ -2,45 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/header.css';
 
-const axios = require('axios').default;
-
 class Header extends Component {
   constructor() {
     super();
     this.state = {
       menu: false,
-      loggedIn: false,
       featured: false,
-      alerted: false,
-      userId: 0,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleFeatured = this.toggleFeatured.bind(this);
     this.logout = this.logout.bind(this);
   }
 
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const { userId, alerted } = this.state;
-
-    if (token && !userId && !alerted) {
-      axios
-        .post('http://localhost:3007/user/token', { token })
-        .then((response) => {
-          const { id } = response.data;
-          this.setState({ userId: id, loggedIn: true });
-        })
-        .catch((error) => {
-          localStorage.removeItem('token');
-          this.setState({ loggedIn: false, alerted: true });
-          alert(error.response.data.message);
-        });
-    }
-  }
-
   logout = () => {
     localStorage.removeItem('token');
-    this.setState({ loggedIn: false, userId: 0 });
   };
 
   toggleMenu = () => {
@@ -51,7 +26,8 @@ class Header extends Component {
   toggleFeatured = () => this.setState({ featured: !this.state.featured });
 
   hamburguerMenu() {
-    const { loggedIn, menu, featured, userId } = this.state;
+    const { menu, featured } = this.state;
+    const { userId, loggedIn } = this.props;
     return (
       <div className={menu ? 'open' : 'close'}>
         <ul className="menu-items">
@@ -92,16 +68,17 @@ class Header extends Component {
           <Link to="/faleconosco">
             <li>Fale Conosco</li>
           </Link>
-          <Link to="/" onClick={this.logout}>
+          <a href="/" onClick={this.logout}>
             <li>Sair</li>
-          </Link>
+          </a>
         </ul>
       </div>
     );
   }
 
   render() {
-    const { menu, loggedIn, userId } = this.state;
+    const { menu } = this.state;
+    const { userId, loggedIn } = this.props;
     return (
       <div>
         <div className="NavBar">

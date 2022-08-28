@@ -11,34 +11,9 @@ class FeedbackNew extends Component {
       title: '',
       text: '',
       done: false,
-      userId: 0,
-      role: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitPost = this.submitPost.bind(this);
-  }
-
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const { userId, loading } = this.state;
-
-    if (loading) {
-      axios.get('http://localhost:3007/post').then((response) => {
-        this.setState({ posts: response.data, loading: false });
-      });
-    }
-
-    if (token && !userId) {
-      axios
-        .post('http://localhost:3007/user/token', { token })
-        .then((response) => {
-          const { id, name, role } = response.data;
-          this.setState({ name, userId: id, role });
-        })
-        .catch((_error) => {
-          localStorage.removeItem('token');
-        });
-    }
   }
 
   handleChange({ target }) {
@@ -54,7 +29,8 @@ class FeedbackNew extends Component {
   );
 
   submitPost() {
-    const { title, text, userId } = this.state;
+    const { title, text } = this.state;
+    const { userId } = this.props;
 
     const headers = { title, text, userId };
 

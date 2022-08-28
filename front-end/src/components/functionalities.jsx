@@ -2,40 +2,7 @@ import React, { Component } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import '../styles/functionalities.css';
 
-const axios = require('axios').default;
-
 class Functionalities extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      userId: 0,
-      loggedIn: false,
-      loading: true,
-      role: '',
-    };
-  }
-
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const { userId } = this.state;
-
-    if (token && !userId) {
-      axios
-        .post('http://localhost:3007/user/token', { token })
-        .then((response) => {
-          const { id, name, role } = response.data;
-          this.setState({ name, userId: id, loggedIn: true, loading: false, role });
-        })
-        .catch((_error) => {
-          localStorage.removeItem('token');
-          this.setState({ loggedIn: false, loading: false });
-        });
-    } else {
-      this.setState({ loggedIn: false, loading: false });
-    }
-  }
-
   backlogo = () => (
     <div className="backlogo-container">
       <img src="/logo.png" alt="logo" />
@@ -43,7 +10,7 @@ class Functionalities extends Component {
   );
 
   render() {
-    const { name, loggedIn, loading } = this.state;
+    const { loggedIn, loading, name } = this.props;
     return (
       <div>
         {this.backlogo()}
