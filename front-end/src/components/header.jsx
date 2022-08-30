@@ -89,7 +89,9 @@ class Header extends Component {
               <span className="line line3" />
             </div>
           </div>
-          <img src="/logo.png" alt="logo" className="logo" />
+          <Link to="/">
+            <img src="/logo.png" alt="logo" className="logo" />
+          </Link>
           <Link to={loggedIn ? `/membros/${userId}` : '/login'}>
             <img src="/login-removebg-preview.png" alt="login" id="login" />
           </Link>
