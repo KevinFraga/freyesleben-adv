@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/login.css';
+import '../styles/uploader.css';
 
 const axios = require('axios').default;
 
@@ -44,19 +44,22 @@ class Downloader extends Component {
       <div>
         {this.backlogo()}
         <div className="upload-container">
-          {!loading && files.map((file) => (
-            <div key={file.name} className="downloader">
-              <p>{file.name}</p>
-              <button
-                type="button"
-                className="f-button"
-                name={file.kind}
-                onClick={this.handleDownload}
-              >
-                Download
-              </button>
-            </div>
-          ))}
+          {!loading &&
+            files.map((file) => (
+              <div key={file.name} className="download-container">
+                <div className="d-text">
+                  <p>{file.name}</p>
+                </div>
+                <button
+                  type="button"
+                  className="d-button"
+                  name={file.kind}
+                  onClick={this.handleDownload}
+                >
+                  Download
+                </button>
+              </div>
+            ))}
         </div>
       </div>
     );

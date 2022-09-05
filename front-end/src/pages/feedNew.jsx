@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import FeedbackNew from '../components/feedbackNew';
@@ -11,6 +12,7 @@ class FeedNew extends Component {
     this.state = {
       userId: 0,
       loggedIn: false,
+      loading: true,
     };
   }
 
@@ -34,11 +36,12 @@ class FeedNew extends Component {
   }
 
   render() {
-    const { userId, loggedIn } = this.state;
+    const { userId, loggedIn, loading } = this.state;
     return (
       <div>
+        {!loggedIn && !loading && <Navigate to="/" />}
         <Header userId={userId} loggedIn={loggedIn} />
-        <FeedbackNew userId={userId} />
+        {!loading && <FeedbackNew userId={userId} />}
         <Footer />
       </div>
     );

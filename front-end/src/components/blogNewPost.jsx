@@ -30,10 +30,11 @@ class BlogNewPost extends Component {
 
   submitPost() {
     const { title, text } = this.state;
+    const { userId } = this.props;
 
-    const headers = { title, text };
+    const headers = { title, text, userId };
 
-    axios.post('http://localhost:3007/post/new', headers).then((_response) => {
+    axios.post('http://localhost:3007/post/new', headers).then(() => {
       this.setState({ done: true });
     });
   }

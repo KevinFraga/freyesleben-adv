@@ -28,3 +28,34 @@
   font-size: 2rem;
   height: 4rem;
 }
+
+.download-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid 2px #033E8D;
+  color: #03318d;
+  font-family: Helvetica, sans-serif;
+  left: 10%;
+  list-style: none;
+  margin: 1rem 0;
+  position: relative;
+  text-align: left;
+  text-shadow: 1px 1px black;
+  width: 80%;
+}
+
+.d-button {
+  position: relative;
+  width: 18%;
+  margin: 1%;
+  background-color: #03318d;
+  color: white;
+}
+
+.d-text {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  margin: 1rem;
+  white-space: pre-line;
+}

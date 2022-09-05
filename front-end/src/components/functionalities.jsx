@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/functionalities.css';
 
 class Functionalities extends Component {
@@ -10,11 +10,10 @@ class Functionalities extends Component {
   );
 
   render() {
-    const { loggedIn, loading, name } = this.props;
+    const { name } = this.props;
     return (
       <div>
         {this.backlogo()}
-        {!loggedIn && !loading && <Navigate to="/" />}
         <h1 className="user-name">Olá, {name}</h1>
         <div className="func-container">
           <div className="func-row">

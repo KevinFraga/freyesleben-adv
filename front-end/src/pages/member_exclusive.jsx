@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Functionalities from '../components/functionalities';
@@ -39,8 +40,9 @@ class Exclusive extends Component {
     const { userId, loggedIn, loading, name } = this.state;
     return (
       <div>
+        {!loggedIn && !loading && <Navigate to="/" />}
         <Header userId={userId} loggedIn={loggedIn} />
-        <Functionalities loggedIn={loggedIn} loading={loading} name={name} />
+        {!loading && <Functionalities name={name} />}
         <Footer />
       </div>
     );
