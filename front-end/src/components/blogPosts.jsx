@@ -49,7 +49,7 @@ class BlogPosts extends Component {
       <div>
         {!isEmpty && this.backlogo()}
         <div className="titleBox">
-          <p className="title">BLOG DO ADVOGADO</p>
+          <p className="title">Blog do Advogado</p>
           <p className="subtitle">O que penso sobre...</p>
           {isAdmin && (
             <button type="button" className="p-button">

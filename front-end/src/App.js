@@ -13,6 +13,7 @@ import Blog from './pages/blog';
 import BlogNew from './pages/blogNew';
 import Partnerships from './pages/partnerships';
 import Contact from './pages/contact';
+import Lives from './pages/lives';
 import './styles/app.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/depoimentos/novo" element={<FeedNew />} />
         <Route path="/parceiros" element={<Partnerships />} />
         <Route path="/faleconosco" element={<Contact />} />
+        <Route path="/lives" element={<Lives />} />
       </Routes>
     </BrowserRouter>
   );

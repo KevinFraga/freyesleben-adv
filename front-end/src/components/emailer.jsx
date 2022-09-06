@@ -48,7 +48,7 @@ class Emailer extends Component {
         {done && <Navigate to="/" />}
         {this.backlogo()}
         <div>
-          <p className="title">FALE CONOSCO</p>
+          <p className="title">Fale Conosco</p>
         </div>
         <div className="form new-user">
           <div className="login-form">

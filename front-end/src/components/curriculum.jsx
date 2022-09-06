@@ -12,7 +12,7 @@ class Curriculum extends Component {
     return (
       <div>
         {this.backlogo()}
-        <p className="title">QUEM SOMOS</p>
+        <p className="title">Quem Somos</p>
         <ul className="important">
           <li>
             <div className="c-img">

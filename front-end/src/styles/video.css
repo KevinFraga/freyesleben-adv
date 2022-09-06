@@ -1,0 +1,11 @@
+.video {
+  margin: 3%;
+}
+
+.video-container {
+  background-color: #000000c0;
+  display: flex;
+  justify-content: center;
+  margin: 1% 5%;
+  width: 90%;
+}

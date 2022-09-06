@@ -47,7 +47,7 @@ class FeedbackNew extends Component {
       <div>
         {this.backlogo()}
         <div>
-          <p className="title">NOVO DEPOIMENTO</p>
+          <p className="title">Novo Depoimento</p>
         </div>
         <div className="form login">
           {done && <Navigate to="/depoimentos" />}

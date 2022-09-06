@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
+import Videoplayer from '../components/videoplayer';
 import Footer from '../components/footer';
-import Feedback from '../components/feedback';
 
 const axios = require('axios').default;
 
-class Feed extends Component {
+class Lives extends Component {
   constructor() {
     super();
     this.state = {
       userId: 0,
       loggedIn: false,
+      loading: true,
       role: '',
     };
   }
@@ -24,11 +25,11 @@ class Feed extends Component {
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
           const { id, role } = response.data;
-          this.setState({ userId: id, loggedIn: true, role });
+          this.setState({ userId: id, role: role, loggedIn: true, loading: false });
         })
         .catch((error) => {
           localStorage.removeItem('token');
-          this.setState({ loggedIn: false });
+          this.setState({ loggedIn: false, loading: false });
           alert(error.response.data.message);
         });
     }
@@ -39,11 +40,11 @@ class Feed extends Component {
     return (
       <div>
         <Header userId={userId} loggedIn={loggedIn} />
-        <Feedback userId={userId} role={role} />
+        <Videoplayer role={role} />
         <Footer />
       </div>
     );
   }
-}
+};
 
-export default Feed;
+export default Lives;

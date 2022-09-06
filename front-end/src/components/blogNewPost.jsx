@@ -45,7 +45,7 @@ class BlogNewPost extends Component {
       <div>
         {this.backlogo()}
         <div>
-          <p className="title">NOVO POST</p>
+          <p className="title">Novo Post</p>
         </div>
         <div className="form login">
           {done && <Navigate to="/blog" />}
