@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
-import Videoplayer from '../components/videoplayer';
+import Process from '../components/process';
 import Footer from '../components/footer';
 
 const axios = require('axios').default;
 
-class Lives extends Component {
+class Step extends Component {
   constructor() {
     super();
     this.state = {
       userId: 0,
+      name: '',
       loggedIn: false,
-      role: '',
+      loading: true,
+      step: '',
     };
   }
 
@@ -23,27 +25,27 @@ class Lives extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, role } = response.data;
-          this.setState({ userId: id, role: role, loggedIn: true });
+          const { id, name, step } = response.data;
+          this.setState({ userId: id, name, step, loggedIn: true, loading: false });
         })
         .catch((error) => {
           localStorage.removeItem('token');
-          this.setState({ loggedIn: false });
+          this.setState({ loggedIn: false, loading: false });
           alert(error.response.data.message);
         });
     }
   }
 
   render() {
-    const { userId, loggedIn, role } = this.state;
+    const { userId, loggedIn, loading, name, step } = this.state;
     return (
       <div>
         <Header userId={userId} loggedIn={loggedIn} />
-        <Videoplayer role={role} />
+        {!loading && <Process name={name} step={step} />}
         <Footer />
       </div>
     );
   }
 };
 
-export default Lives;
+export default Step;

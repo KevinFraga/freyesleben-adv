@@ -125,6 +125,7 @@ const validateToken = async (userData) => {
     token: userData.token,
     name: userData.decoded.name,
     role: isRegistered.role,
+    step: isRegistered.step,
   };
 };
 

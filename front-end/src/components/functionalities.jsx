@@ -18,8 +18,10 @@ class Functionalities extends Component {
         <div className="func-container">
           <div className="func-row">
             <div className="func-col">
-              <span>Consultar Processos</span>
-              <span>&rsaquo;</span>
+              <Link to="processo">
+                <span>Consultar seu Processo</span>
+                <span>&rsaquo;</span>
+              </Link>
             </div>
             <div className="func-col">
               <Link to="upload">
