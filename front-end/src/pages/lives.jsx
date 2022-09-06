@@ -25,11 +25,11 @@ class Lives extends Component {
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
           const { id, role } = response.data;
-          this.setState({ userId: id, role: role, loggedIn: true, loading: false });
+          this.setState({ userId: id, role: role, loggedIn: true });
         })
         .catch((error) => {
           localStorage.removeItem('token');
-          this.setState({ loggedIn: false, loading: false });
+          this.setState({ loggedIn: false });
           alert(error.response.data.message);
         });
     }
