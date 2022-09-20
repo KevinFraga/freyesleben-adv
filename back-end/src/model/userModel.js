@@ -2,7 +2,7 @@ const connect = require('./connection');
 
 const registerUser = async ({ name, email, password }) => {
   const [_data] = await connect.query(
-    "INSERT INTO users (name, email, password, role, step) VALUES (?, ?, ?, 'user', 'Cadastro criado, favor enviar documentos.');",
+    "INSERT INTO users (name, email, password, role, step, profilepic) VALUES (?, ?, ?, 'user', 'Cadastro criado, favor enviar documentos.', '/new-user.png');",
     [name, email, password]
   );
 
