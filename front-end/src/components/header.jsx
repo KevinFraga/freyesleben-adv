@@ -81,7 +81,7 @@ class Header extends Component {
 
   render() {
     const { menu } = this.state;
-    const { userId, loggedIn } = this.props;
+    const { userId, loggedIn, profilepic } = this.props;
     return (
       <div>
         <div className="NavBar">
@@ -96,7 +96,7 @@ class Header extends Component {
             <img src="/logo.png" alt="logo" className="logo" />
           </Link>
           <Link to={loggedIn ? `/membros/${userId}` : '/login'}>
-            <img src="/login-removebg-preview.png" alt="login" id="login" />
+            <img src={profilepic} alt="login" id="login" />
           </Link>
         </div>
         {this.hamburguerMenu()}

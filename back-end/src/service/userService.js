@@ -126,6 +126,7 @@ const validateToken = async (userData) => {
     name: userData.decoded.name,
     role: isRegistered.role,
     step: isRegistered.step,
+    profilepic: isRegistered.profilepic,
   };
 };
 

@@ -12,6 +12,7 @@ class Lives extends Component {
       userId: 0,
       loggedIn: false,
       role: '',
+      profilepic: '/new-user.png',
     };
   }
 
@@ -23,8 +24,8 @@ class Lives extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, role } = response.data;
-          this.setState({ userId: id, role: role, loggedIn: true });
+          const { id, role, profilepic} = response.data;
+          this.setState({ userId: id, role: role, loggedIn: true, profilepic });
         })
         .catch((error) => {
           localStorage.removeItem('token');
@@ -35,10 +36,10 @@ class Lives extends Component {
   }
 
   render() {
-    const { userId, loggedIn, role } = this.state;
+    const { userId, loggedIn, role, profilepic } = this.state;
     return (
       <div>
-        <Header userId={userId} loggedIn={loggedIn} />
+        <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
         <Videoplayer role={role} />
         <Footer />
       </div>

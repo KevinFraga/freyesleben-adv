@@ -12,6 +12,7 @@ class WhoWeAre extends Component {
     this.state = {
       userId: 0,
       loggedIn: false,
+      profilepic: '/new-user.png',
     };
   }
 
@@ -23,8 +24,8 @@ class WhoWeAre extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id } = response.data;
-          this.setState({ userId: id, loggedIn: true });
+          const { id, profilepic } = response.data;
+          this.setState({ userId: id, loggedIn: true, profilepic });
         })
         .catch((error) => {
           localStorage.removeItem('token');
@@ -35,10 +36,10 @@ class WhoWeAre extends Component {
   }
 
   render() {
-    const { userId, loggedIn } = this.state;
+    const { userId, loggedIn, profilepic } = this.state;
     return (
       <div>
-        <Header userId={userId} loggedIn={loggedIn} />
+        <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
         <Curriculum />
         <Motivation />
         <Footer />

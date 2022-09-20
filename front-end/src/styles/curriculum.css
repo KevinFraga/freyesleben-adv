@@ -44,7 +44,7 @@
     font-family: Helvetica, sans-serif;
     left: 10%;
     list-style: none;
-    margin: 1rem 0;
+    margin: 2rem 0;
     position: relative;
     text-align: left;
     text-shadow: 1px 1px black;
@@ -145,4 +145,21 @@
 .backlogo-container img {
     height: 100%;
     width: 120rem;
+}
+
+.slidebar {
+    height: 2rem;
+    background-color: #03318d;
+    border-radius: 5rem;
+    /* width: 25%; */
+}
+
+.slider {
+    border: solid 2px #033E8D;
+    border-radius: 5rem;
+    color: #03318d;
+    left: 20%;
+    margin: 3rem 0;
+    position: relative;
+    width: 60%;
 }

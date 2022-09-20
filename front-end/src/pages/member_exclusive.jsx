@@ -14,6 +14,7 @@ class Exclusive extends Component {
       loggedIn: false,
       loading: true,
       name: '',
+      profilepic: '/new-user.png',
     };
   }
 
@@ -25,8 +26,8 @@ class Exclusive extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, name } = response.data;
-          this.setState({ userId: id, loggedIn: true, name, loading: false });
+          const { id, name, profilepic } = response.data;
+          this.setState({ userId: id, loggedIn: true, name, loading: false, profilepic });
         })
         .catch((error) => {
           localStorage.removeItem('token');
@@ -37,11 +38,11 @@ class Exclusive extends Component {
   }
 
   render() {
-    const { userId, loggedIn, loading, name } = this.state;
+    const { userId, loggedIn, loading, name, profilepic } = this.state;
     return (
       <div>
         {!loggedIn && !loading && <Navigate to="/" />}
-        <Header userId={userId} loggedIn={loggedIn} />
+        <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
         {!loading && <Functionalities name={name} />}
         <Footer />
       </div>

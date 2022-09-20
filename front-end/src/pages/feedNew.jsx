@@ -13,6 +13,7 @@ class FeedNew extends Component {
       userId: 0,
       loggedIn: false,
       loading: true,
+      profilepic: '/new-user.png',
     };
   }
 
@@ -24,8 +25,8 @@ class FeedNew extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id } = response.data;
-          this.setState({ userId: id, loggedIn: true });
+          const { id, profilepic } = response.data;
+          this.setState({ userId: id, loggedIn: true, profilepic });
         })
         .catch((error) => {
           localStorage.removeItem('token');
@@ -36,11 +37,11 @@ class FeedNew extends Component {
   }
 
   render() {
-    const { userId, loggedIn, loading } = this.state;
+    const { userId, loggedIn, loading, profilepic } = this.state;
     return (
       <div>
         {!loggedIn && !loading && <Navigate to="/" />}
-        <Header userId={userId} loggedIn={loggedIn} />
+        <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
         {!loading && <FeedbackNew userId={userId} />}
         <Footer />
       </div>
