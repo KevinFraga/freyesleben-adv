@@ -59,10 +59,10 @@ class BlogPosts extends Component {
         </div>
         {!loading &&
           posts.map((post) => (
-            <div className="post">
+            <div className="post" key={post.id}>
               <div className="p-img">
-                <p className="p-name">Alexandre Guerrieri Freyesleben</p>
-                <img src="/Alexandre_sem_fundo.png" alt="alexandre" />
+                <p className="p-name">{post.name}</p>
+                <img src={post.profilepic} alt={post.name} />
               </div>
               <div className="p-img">
                 <p className="p-name">{post.title}</p>

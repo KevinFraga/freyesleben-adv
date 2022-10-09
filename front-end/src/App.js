@@ -15,6 +15,7 @@ import Partnerships from './pages/partnerships';
 import Contact from './pages/contact';
 import Lives from './pages/lives';
 import Step from './pages/step';
+import Profilepic from './pages/profilepic';
 import './styles/app.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/membros/:id/upload" element={<Upload />} />
         <Route path="/membros/:id/download" element={<Download />} />
         <Route path="/membros/:id/processo" element={<Step />} />
+        <Route path="/membros/:id/profilepic" element={<Profilepic />} />
         <Route path="/causas" element={<Success />} />
         <Route path="/quem_somos" element={<WhoWeAre />} />
         <Route path="/blog" element={<Blog />} />

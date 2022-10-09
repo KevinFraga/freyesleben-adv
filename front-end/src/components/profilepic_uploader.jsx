@@ -3,15 +3,14 @@ import '../styles/uploader.css';
 
 const axios = require('axios').default;
 
-class Uploader extends Component {
+class ProfilepicUploader extends Component {
   constructor() {
     super();
     this.state = {
       file: '',
-      kind: 'RG',
+      kind: 'profilepic',
     };
     this.handleFile = this.handleFile.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
   }
 
@@ -21,10 +20,21 @@ class Uploader extends Component {
     });
   }
 
-  handleSelect({ target }) {
-    this.setState({
-      kind: target.value,
-    });
+  validateFile() {
+    const { file } = this.state;
+    let answer = false;
+
+    if (file) {
+      if (
+        file.name.slice(-3) === 'jpg' ||
+        file.name.slice(-3) === 'png' ||
+        file.name.slice(-4) === 'jpeg'
+      ) {
+        answer = true;
+      }
+    }
+
+    return answer;
   }
 
   handleUpload() {
@@ -35,16 +45,23 @@ class Uploader extends Component {
     const formData = new FormData();
     formData.append('kind', kind);
     formData.append('contentType', file.type);
-    formData.append('extension', file.name.slice(-3));
+    formData.append(
+      'extension',
+      file.name.slice(-4) === 'jpeg' ? file.name.slice(-4) : file.name.slice(-3)
+    );
     formData.append('userId', userId);
     formData.append('name', name);
     formData.append('token', token);
     formData.append('file', file);
 
     axios
-      .post(`http://localhost:3007/user/${userId}/file/upload`, formData, {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      })
+      .post(
+        `http://localhost:3007/user/${userId}/file/upload/profilepic`,
+        formData,
+        {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        }
+      )
       .then((response) => {
         alert(response.data.message);
       })
@@ -60,34 +77,16 @@ class Uploader extends Component {
   );
 
   render() {
-    const fileTypes = [
-      'RG',
-      'CPF',
-      'CNH',
-      'CTPS',
-      'Contrato',
-      'Comprovante de Residência',
-      'Carta de Aposentadoria',
-      'Procuração',
-      'Termo de Hipossuficiência',
-      'Termo de Renúncia',
-    ];
     return (
       <div>
         {this.backlogo()}
         <div className="upload-container">
           <input type="file" onChange={this.handleFile} name="file" />
-          <select name="kind" onChange={this.handleSelect}>
-            {fileTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
           <button
             type="button"
             className="f-button"
             onClick={this.handleUpload}
+            disabled={!this.validateFile()}
           >
             Enviar
           </button>
@@ -97,4 +96,4 @@ class Uploader extends Component {
   }
 }
 
-export default Uploader;
+export default ProfilepicUploader;

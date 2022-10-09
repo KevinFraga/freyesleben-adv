@@ -16,6 +16,22 @@ const uploader = async (fileData) => {
   return { message: `${data.fileName} recebido com sucesso` };
 };
 
+const profilepicUploader = async (fileData) => {
+  const { userId, kind, fileName, filePath, contentType } = fileData;
+
+  const newFile = {
+    fileName,
+    kind,
+    userId,
+    filePath,
+    contentType
+  };
+
+  const data = await file.registerProfilepic(newFile);
+
+  return { message: `${data.fileName} recebido com sucesso` };
+};
+
 const downloader = async (id, fileType) => {
   const data = await file.findFile(id, fileType);
 
@@ -37,4 +53,5 @@ module.exports = {
   uploader,
   downloader,
   getAllFiles,
+  profilepicUploader,
 };

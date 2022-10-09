@@ -56,10 +56,10 @@ class Feedback extends Component {
           </button>
         </div>
         {posts.map((post) => (
-          <div className="post">
+          <div className="post" key={post.id}>
             <div className="p-img">
               <p className="p-name">{post.name}</p>
-              <img src="/login-removebg-preview.png" alt="user" />
+              <img src={post.profilepic} alt={post.name} />
             </div>
             <div className="p-img">
               <p className="p-name">{post.title}</p>

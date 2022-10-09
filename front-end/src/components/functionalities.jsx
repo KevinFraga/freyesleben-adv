@@ -32,10 +32,11 @@ class Functionalities extends Component {
           </div>
           <div className="func-row">
             <div className="func-col">
-              <span>Acessar Contrato</span>
-              <span>&rsaquo;</span>
+              <Link to="profilepic">
+                <span>Trocar Foto de Perfil</span>
+                <span>&rsaquo;</span>
+              </Link>
             </div>
-
             <div className="func-col">
               <Link to="download">
                 <span>Download de Documentos e Processos</span>

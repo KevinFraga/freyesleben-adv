@@ -11,7 +11,10 @@ const storage = multer.diskStorage({
   filename: (req, _file, cb) => {
     const name = `${req.body.name}-${req.body.kind}.${req.body.extension}`;
     req.body.fileName = name;
-    req.body.filePath = path.resolve(`./public/${name}`);
+    req.body.filePath =
+      req.body.extension === 'pdf'
+        ? path.resolve(`./public/${name}`)
+        : `http://localhost:3007/${name}`;
     cb(null, name);
   },
 });
@@ -36,6 +39,14 @@ router.post(
   middleware.tokenValidator,
   file.tokenValidator,
   file.uploader
+);
+
+router.post(
+  '/:id/file/upload/profilepic',
+  upload.single('file'),
+  middleware.tokenValidator,
+  file.tokenValidator,
+  file.profilepicUploader
 );
 
 router.get('/:id/file/download', file.getAllFiles);

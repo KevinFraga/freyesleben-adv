@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 
 const getAllPosts = async () => {
   const [data] = await connect.query(
-    'SELECT p.id, p.author_id, u.name, p.title, p.text, DATE_FORMAT(p.created_at, "%d/%m/%y") AS date FROM posts p INNER JOIN users u ON p.author_id = u.id ORDER BY p.id DESC;'
+    'SELECT p.id, p.author_id, u.name, p.title, u.profilepic, p.text, DATE_FORMAT(p.created_at, "%d/%m/%y") AS date FROM posts p INNER JOIN users u ON p.author_id = u.id ORDER BY p.id DESC;'
   );
 
   return data;
@@ -31,7 +31,7 @@ const deletePost = async (postId) => {
 
 const getAllFeedbacks = async () => {
   const [data] = await connect.query(
-    'SELECT f.id, f.author_id, u.name, f.title, f.text, DATE_FORMAT(f.created_at, "%d/%m/%y") AS date FROM feedbacks f INNER JOIN users u ON f.author_id = u.id ORDER BY f.id DESC;'
+    'SELECT f.id, f.author_id, u.name, u.profilepic, f.title, f.text, DATE_FORMAT(f.created_at, "%d/%m/%y") AS date FROM feedbacks f INNER JOIN users u ON f.author_id = u.id ORDER BY f.id DESC;'
   );
 
   return data;

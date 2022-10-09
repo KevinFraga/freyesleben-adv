@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Uploader from '../components/uploader';
+import ProfilepicUploader from '../components/profilepic_uploader';
 
 const axios = require('axios').default;
 
-class Upload extends Component {
+class Profilepic extends Component {
   constructor() {
     super();
     this.state = {
       userId: 0,
+      name: '',
       loggedIn: false,
       loading: true,
       profilepic: '/new-user.png',
-      name: '',
     };
   }
 
@@ -43,11 +43,11 @@ class Upload extends Component {
       <div>
         {!loggedIn && !loading && <Navigate to="/" />}
         <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
-        {!loading && <Uploader userId={userId} name={name}/>}
+        {!loading && <ProfilepicUploader userId={userId} name={name} />}
         <Footer />
       </div>
     );
   }
 }
 
-export default Upload;
+export default Profilepic;

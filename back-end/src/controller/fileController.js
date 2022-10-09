@@ -9,6 +9,14 @@ const uploader = async (req, res, next) => {
   return res.status(201).json(fileData);
 };
 
+const profilepicUploader = async (req, res, next) => {
+  const profilepicData = await file.profilepicUploader(req.body);
+
+  if (profilepicData.error) return next(profilepicData);
+
+  return res.status(201).json(profilepicData);
+};
+
 const tokenValidator = async (req, _res, next) => {
   const userData = await user.validateToken(req.body);
 
@@ -49,4 +57,5 @@ module.exports = {
   tokenValidator,
   downloader,
   getAllFiles,
+  profilepicUploader,
 };
