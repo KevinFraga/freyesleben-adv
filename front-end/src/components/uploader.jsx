@@ -59,6 +59,19 @@ class Uploader extends Component {
     </div>
   );
 
+  validateFile() {
+    const { file } = this.state;
+    let answer = false;
+
+    if (file) {
+      if (file.name.slice(-3) === 'pdf' && file.size < 5000000) {
+        answer = true;
+      }
+    }
+
+    return answer;
+  }
+
   render() {
     const fileTypes = [
       'RG',
@@ -71,6 +84,7 @@ class Uploader extends Component {
       'Procuração',
       'Termo de Hipossuficiência',
       'Termo de Renúncia',
+      'Comprovante de Pagamento',
     ];
     return (
       <div>
@@ -88,6 +102,7 @@ class Uploader extends Component {
             type="button"
             className="f-button"
             onClick={this.handleUpload}
+            disabled={!this.validateFile()}
           >
             Enviar
           </button>

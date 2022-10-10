@@ -10,21 +10,31 @@ class Process extends Component {
 
   render() {
     const { name, step } = this.props;
-    
+
     let pct = '0%';
-    if (step === 'Cadastro criado, favor enviar documentos.') {
+    if (step === 'Cadastro criado, por favor envie os seus documentos.') {
       pct = '25%';
-    } else if (step === 'Documentos recebidos, favor assinar e enviar o contrato.') {
-      pct = '50%'
+    } else if (
+      step ===
+      'Documentos recebidos, por favor assine e nos envie o seu contrato conosco.'
+    ) {
+      pct = '50%';
+    } else if (
+      step ===
+      'Contrato recebido, por favor realize o pagamento e nos envie o comprovante para iniciarmos o processo.'
+    ) {
+      pct = '75%';
+    } else if (step === 'Processo protocolado.') {
+      pct = '100%';
     }
     const progress = { width: pct };
-    
+
     return (
       <div>
         {this.backlogo()}
         <h1 className="user-name">{name}:</h1>
         <div className="slider">
-          <div className="slidebar" style={progress}/>
+          <div className="slidebar" style={progress} />
         </div>
         <div className="post">
           <p className="p-text">Seu processo encontra-se na seguinte etapa:</p>

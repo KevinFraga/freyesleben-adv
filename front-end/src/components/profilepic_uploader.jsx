@@ -64,6 +64,7 @@ class ProfilepicUploader extends Component {
       )
       .then((response) => {
         alert(response.data.message);
+        window.location.reload(false);
       })
       .catch((error) => {
         alert(error.response.data.message);
