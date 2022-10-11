@@ -59,7 +59,7 @@ const updateStep = async (id) => {
     [id]
   );
 
-  if (contract) {
+  if (contract[0]) {
     updateNextStep(id);
   } else {
     const [_data] = await connect.query(
@@ -75,7 +75,7 @@ const updateNextStep = async (id) => {
     [id]
   );
 
-  if (payment) {
+  if (payment[0]) {
     updateLastStep(id);
   } else {
     const [_data] = await connect.query(
@@ -83,14 +83,14 @@ const updateNextStep = async (id) => {
       [id]
     );
   }
-}
+};
 
 const updateLastStep = async (id) => {
   const [_data] = await connect.query(
     "UPDATE users SET step = 'Processo protocolado.', process = 1 WHERE id = ?;",
     [id]
   );
-}
+};
 
 module.exports = {
   registerFile,

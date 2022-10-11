@@ -104,6 +104,10 @@
     line-height: 2rem;
     margin: 1rem;
     white-space: pre-line;
+    text-align: left;
+    text-shadow: 1px 1px black;
+    color: #03318d;
+    font-family: Helvetica, sans-serif;
 }
 
 .line-minor {
@@ -151,15 +155,38 @@
     height: 2rem;
     background-color: #03318d;
     border-radius: 5rem;
-    /* width: 25%; */
 }
 
 .slider {
     border: solid 2px #033E8D;
     border-radius: 5rem;
     color: #03318d;
-    left: 20%;
+    left: 5%;
     margin: 3rem 0;
     position: relative;
-    width: 60%;
+    width: 90%;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 10%;
+    width: 80%;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.step {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    border: solid 2px #033E8D;
 }

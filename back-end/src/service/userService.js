@@ -127,6 +127,8 @@ const validateToken = async (userData) => {
     role: isRegistered.role,
     step: isRegistered.step,
     profilepic: isRegistered.profilepic,
+    process: isRegistered.process,
+    color: isRegistered.color,
   };
 };
 

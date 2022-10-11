@@ -9,7 +9,7 @@ class Process extends Component {
   );
 
   render() {
-    const { name, step } = this.props;
+    const { name, step, process, color } = this.props;
 
     let pct = '0%';
     if (step === 'Cadastro criado, por favor envie os seus documentos.') {
@@ -28,6 +28,7 @@ class Process extends Component {
       pct = '100%';
     }
     const progress = { width: pct };
+    const colored = { backgroundColor: color };
 
     return (
       <div>
@@ -36,6 +37,26 @@ class Process extends Component {
         <div className="slider">
           <div className="slidebar" style={progress} />
         </div>
+        {process > 0 && (
+          <div className="progress-bar">
+            <div className="progress-step">
+              <div className="step" style={process === 1 ? colored : null} />
+              <p className="p-text">Protocolado</p>
+            </div>
+            <div className="progress-step">
+              <div className="step" style={process === 2 ? colored : null} />
+              <p className="p-text">Sentença</p>
+            </div>
+            <div className="progress-step">
+              <div className="step" style={process === 3 ? colored : null} />
+              <p className="p-text">Tribunais Superiores</p>
+            </div>
+            <div className="progress-step">
+              <div className="step" style={process === 4 ? colored : null} />
+              <p className="p-text">Execução</p>
+            </div>
+          </div>
+        )}
         <div className="post">
           <p className="p-text">Seu processo encontra-se na seguinte etapa:</p>
           <p className="p-text">{step}</p>

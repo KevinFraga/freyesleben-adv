@@ -15,6 +15,8 @@ class Step extends Component {
       loading: true,
       step: '',
       profilepic: '/new-user.png',
+      processo: 0,
+      color: 'green',
     };
   }
 
@@ -26,8 +28,8 @@ class Step extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, name, step, profilepic } = response.data;
-          this.setState({ userId: id, name, step, loggedIn: true, loading: false, profilepic });
+          const { id, name, step, profilepic, process, color } = response.data;
+          this.setState({ userId: id, name, step, loggedIn: true, loading: false, profilepic, process, color });
         })
         .catch((error) => {
           localStorage.removeItem('token');
@@ -38,11 +40,11 @@ class Step extends Component {
   }
 
   render() {
-    const { userId, loggedIn, loading, name, step, profilepic } = this.state;
+    const { userId, loggedIn, loading, name, step, profilepic, process, color } = this.state;
     return (
       <div>
         <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
-        {!loading && <Process name={name} step={step} />}
+        {!loading && <Process name={name} step={step} process={process} color={color} />}
         <Footer />
       </div>
     );
