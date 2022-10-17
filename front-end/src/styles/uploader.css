@@ -1,12 +1,11 @@
 .upload-container {
-  display: flex;
+  display: flexbox;
   font-family: Helvetica, sans-serif;
   flex-direction: column;
   position: relative;
   font-weight: bold;
   width: 80%;
   left: 10%;
-  height: 65vh;
   margin: 2rem 1rem;
   justify-content: center;
 }

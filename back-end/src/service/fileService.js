@@ -1,11 +1,12 @@
 const { file } = require('../model');
 
 const uploader = async (fileData) => {
-  const { userId, kind, fileName, filePath, contentType } = fileData;
+  const { userId, kind, fileName, filePath, contentType, process } = fileData;
 
   const newFile = {
     fileName,
     kind,
+    process,
     userId,
     filePath,
     contentType

@@ -3,6 +3,7 @@ const connect = require('./connection');
 const registerFile = async ({
   userId,
   kind,
+  process,
   fileName,
   filePath,
   contentType,
@@ -11,14 +12,14 @@ const registerFile = async ({
 
   if (!alreadyExists) {
     const [_data] = await connect.query(
-      'INSERT INTO files (user_id, kind, name, path, content_type) VALUES (?, ?, ?, ?, ?);',
-      [userId, kind, fileName, filePath, contentType]
+      'INSERT INTO files (user_id, kind, name, path, content_type, process) VALUES (?, ?, ?, ?, ?, ?);',
+      [userId, kind, fileName, filePath, contentType, process]
     );
   }
 
   const [count] = await connect.query(
-    'SELECT COUNT(DISTINCT kind) AS count FROM files WHERE user_id = ?',
-    [userId]
+    'SELECT COUNT(DISTINCT kind) AS count FROM files WHERE user_id = ? AND process = ?;',
+    [userId, process]
   );
 
   if (count[0].count >= 3) updateStep(userId);
@@ -46,7 +47,7 @@ const findFile = async (id, kind) => {
 
 const getAllFiles = async (id) => {
   const [data] = await connect.query(
-    'SELECT DISTINCT(name), kind, path, content_type FROM files WHERE user_id = ?;',
+    'SELECT DISTINCT(name), kind, path, content_type, process FROM files WHERE user_id = ?;',
     [id]
   );
 
@@ -92,9 +93,23 @@ const updateLastStep = async (id) => {
   );
 };
 
+const getFileKind = async () => {
+  const [data] = await connect.query('SELECT name FROM fileKind;');
+
+  return data;
+};
+
+const getProcesses = async () => {
+  const [data] = await connect.query('SELECT name FROM processes;');
+
+  return data;
+};
+
 module.exports = {
   registerFile,
   findFile,
   getAllFiles,
   registerProfilepic,
+  getFileKind,
+  getProcesses,
 };

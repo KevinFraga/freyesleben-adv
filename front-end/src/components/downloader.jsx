@@ -49,6 +49,7 @@ class Downloader extends Component {
               <div key={file.name} className="download-container">
                 <div className="d-text">
                   <p>{file.name}</p>
+                  <p>Processo: {file.process}</p>
                 </div>
                 <button
                   type="button"

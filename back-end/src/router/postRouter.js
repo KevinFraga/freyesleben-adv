@@ -6,6 +6,10 @@ const router = express.Router();
 
 router.get('/', post.getAllPosts);
 
+router.get('/filekind', post.getFileKind);
+
+router.get('/processes', post.getProcesses);
+
 router.get('/feedback', post.getAllFeedbacks);
 
 router.post('/new', post.newPost);

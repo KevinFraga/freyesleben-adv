@@ -1,4 +1,4 @@
-const { post } = require('../model');
+const { post, file } = require('../model');
 const joi = require('joi');
 
 const getAllPosts = async () => await post.getAllPosts();
@@ -58,7 +58,11 @@ const sendEmail = async (emailData) => {
   const data = await post.sendEmail(value);
 
   return data;
-}
+};
+
+const getFileKind = async () => await file.getFileKind();
+
+const getProcesses = async () => await file.getProcesses();
 
 module.exports = {
   getAllPosts,
@@ -68,4 +72,6 @@ module.exports = {
   newFeedback,
   deleteFeedback,
   sendEmail,
+  getFileKind,
+  getProcesses,
 };

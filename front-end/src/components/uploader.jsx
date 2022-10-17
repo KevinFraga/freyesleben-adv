@@ -9,10 +9,23 @@ class Uploader extends Component {
     this.state = {
       file: '',
       kind: 'RG',
+      process: 'Outros',
+      fileTypes: [],
+      processes: [],
     };
     this.handleFile = this.handleFile.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3007/post/filekind').then((response) => {
+      this.setState({ fileTypes: response.data });
+    });
+
+    axios.get('http://localhost:3007/post/processes').then((response) => {
+      this.setState({ processes: response.data });
+    });
   }
 
   handleFile({ target }) {
@@ -23,17 +36,18 @@ class Uploader extends Component {
 
   handleSelect({ target }) {
     this.setState({
-      kind: target.value,
+      [target.name]: target.value,
     });
   }
 
   handleUpload() {
-    const { file, kind } = this.state;
+    const { file, kind, process } = this.state;
     const { userId, name } = this.props;
     const token = localStorage.getItem('token');
 
     const formData = new FormData();
     formData.append('kind', kind);
+    formData.append('process', process);
     formData.append('contentType', file.type);
     formData.append('extension', file.name.slice(-3));
     formData.append('userId', userId);
@@ -73,19 +87,7 @@ class Uploader extends Component {
   }
 
   render() {
-    const fileTypes = [
-      'RG',
-      'CPF',
-      'CNH',
-      'CTPS',
-      'Contrato',
-      'Comprovante de Residência',
-      'Carta de Aposentadoria',
-      'Procuração',
-      'Termo de Hipossuficiência',
-      'Termo de Renúncia',
-      'Comprovante de Pagamento',
-    ];
+    const { fileTypes, processes } = this.state;
     return (
       <div>
         {this.backlogo()}
@@ -93,8 +95,15 @@ class Uploader extends Component {
           <input type="file" onChange={this.handleFile} name="file" />
           <select name="kind" onChange={this.handleSelect}>
             {fileTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
+              <option key={type.name} value={type.name}>
+                {type.name}
+              </option>
+            ))}
+          </select>
+          <select name="process" onChange={this.handleSelect}>
+            {processes.map((type) => (
+              <option key={type.name} value={type.name}>
+                {type.name}
               </option>
             ))}
           </select>
