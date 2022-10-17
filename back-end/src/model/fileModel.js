@@ -99,17 +99,10 @@ const getFileKind = async () => {
   return data;
 };
 
-const getProcesses = async () => {
-  const [data] = await connect.query('SELECT name FROM processes;');
-
-  return data;
-};
-
 module.exports = {
   registerFile,
   findFile,
   getAllFiles,
   registerProfilepic,
   getFileKind,
-  getProcesses,
 };

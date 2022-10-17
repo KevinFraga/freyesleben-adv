@@ -50,9 +50,12 @@ const downloader = async (id, fileType) => {
 
 const getAllFiles = async (id) => await file.getAllFiles(id);
 
+const getFileKind = async () => await file.getFileKind();
+
 module.exports = {
   uploader,
   downloader,
   getAllFiles,
   profilepicUploader,
+  getFileKind,
 };

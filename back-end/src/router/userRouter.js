@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const middleware = require('../middleware');
-const { user, file } = require('../controller');
+const { user, file, process } = require('../controller');
 
 const router = express.Router();
 
@@ -32,6 +32,13 @@ router.post('/login', user.login);
 router.get('/email', user.getUserByEmail);
 
 router.post('/token', middleware.tokenValidator, user.tokenValidator);
+
+router.post(
+  '/:id/newprocess',
+  middleware.tokenValidator,
+  process.tokenValidator,
+  process.createProcess
+);
 
 router.post(
   '/:id/file/upload',

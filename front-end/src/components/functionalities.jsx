@@ -18,14 +18,28 @@ class Functionalities extends Component {
         <div className="func-container">
           <div className="func-row">
             <div className="func-col">
-              <Link to="processo">
-                <span>Consultar seu Processo</span>
+              <Link to="novo">
+                <span>Iniciar um novo Processo</span>
                 <span>&rsaquo;</span>
               </Link>
             </div>
             <div className="func-col">
+              <Link to="processo">
+                <span>Consultar seus Processos</span>
+                <span>&rsaquo;</span>
+              </Link>
+            </div>
+          </div>
+          <div className="func-row">
+            <div className="func-col">
               <Link to="upload">
-                <span>Upload de Documentos</span>
+                <span>Enviar seus Documentos</span>
+                <span>&rsaquo;</span>
+              </Link>
+            </div>
+            <div className="func-col">
+              <Link to="download">
+                <span>Baixar seus Documentos e Contratos</span>
                 <span>&rsaquo;</span>
               </Link>
             </div>
@@ -34,12 +48,6 @@ class Functionalities extends Component {
             <div className="func-col">
               <Link to="profilepic">
                 <span>Trocar Foto de Perfil</span>
-                <span>&rsaquo;</span>
-              </Link>
-            </div>
-            <div className="func-col">
-              <Link to="download">
-                <span>Download de Documentos e Processos</span>
                 <span>&rsaquo;</span>
               </Link>
             </div>

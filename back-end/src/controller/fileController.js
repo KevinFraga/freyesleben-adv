@@ -52,10 +52,17 @@ const getAllFiles = async (req, res, _next) => {
   return res.status(200).json(fileData);
 };
 
+const getFileKind = async (_req, res, _next) => {
+  const data = await file.getFileKind();
+
+  return res.status(200).send(data);
+};
+
 module.exports = {
   uploader,
   tokenValidator,
   downloader,
   getAllFiles,
   profilepicUploader,
+  getFileKind,
 };

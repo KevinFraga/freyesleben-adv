@@ -48,18 +48,6 @@ const sendEmail = async (req, res, next) => {
   return res.status(201).json(emailData);
 };
 
-const getFileKind = async (_req, res, _next) => {
-  const data = await post.getFileKind();
-
-  return res.status(200).send(data);
-};
-
-const getProcesses = async (_req, res, _next) => {
-  const data = await post.getProcesses();
-
-  return res.status(200).send(data);
-};
-
 module.exports = {
   getAllPosts,
   newPost,
@@ -68,6 +56,4 @@ module.exports = {
   newFeedback,
   deleteFeedback,
   sendEmail,
-  getFileKind,
-  getProcesses,
 };

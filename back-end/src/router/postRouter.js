@@ -1,14 +1,14 @@
 const express = require('express');
 const middleware = require('../middleware');
-const { post } = require('../controller');
+const { post, file, process } = require('../controller');
 
 const router = express.Router();
 
 router.get('/', post.getAllPosts);
 
-router.get('/filekind', post.getFileKind);
+router.get('/filekind', file.getFileKind);
 
-router.get('/processes', post.getProcesses);
+router.get('/processes', process.getProcesses);
 
 router.get('/feedback', post.getAllFeedbacks);
 

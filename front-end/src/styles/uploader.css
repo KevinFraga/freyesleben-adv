@@ -1,5 +1,5 @@
 .upload-container {
-  display: flexbox;
+  display: flex;
   font-family: Helvetica, sans-serif;
   flex-direction: column;
   position: relative;
@@ -7,7 +7,7 @@
   width: 80%;
   left: 10%;
   margin: 2rem 1rem;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .upload-container input, .upload-container select {
@@ -19,9 +19,8 @@
 
 .f-button {
   position: relative;
-  width: 18%;
-  left: 40%;
-  margin: 1%;
+  width: 30%;
+  left: 35%;
   background-color: #03318d;
   color: white;
   font-size: 2rem;
