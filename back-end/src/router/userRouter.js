@@ -40,6 +40,15 @@ router.post(
   process.createProcess
 );
 
+router.get('/:id/process', process.getProcessesByUser);
+
+router.get(
+  '/:id/process/:process',
+  // middleware.tokenValidator,
+  // process.tokenValidator,
+  process.findProcess
+);
+
 router.post(
   '/:id/file/upload',
   upload.single('file'),

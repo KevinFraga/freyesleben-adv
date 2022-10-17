@@ -8,8 +8,8 @@ class Uploader extends Component {
     super();
     this.state = {
       file: '',
-      kind: 'RG',
-      process: 'Outros',
+      kind: '',
+      process: '',
       fileTypes: [],
       processes: [],
     };
@@ -19,11 +19,13 @@ class Uploader extends Component {
   }
 
   componentDidMount() {
+    const { userId } = this.props;
+
     axios.get('http://localhost:3007/post/filekind').then((response) => {
       this.setState({ fileTypes: response.data });
     });
 
-    axios.get('http://localhost:3007/post/processes').then((response) => {
+    axios.get(`http://localhost:3007/user/${userId}/process`).then((response) => {
       this.setState({ processes: response.data });
     });
   }
@@ -94,6 +96,7 @@ class Uploader extends Component {
         <div className="upload-container">
           <input type="file" onChange={this.handleFile} name="file" />
           <select name="kind" onChange={this.handleSelect}>
+            <option value=''>Selecione o tipo de documento:</option>
             {fileTypes.map((type) => (
               <option key={type.name} value={type.name}>
                 {type.name}
@@ -101,9 +104,10 @@ class Uploader extends Component {
             ))}
           </select>
           <select name="process" onChange={this.handleSelect}>
+            <option value=''>Selecione o seu processo:</option>
             {processes.map((type) => (
-              <option key={type.name} value={type.name}>
-                {type.name}
+              <option key={type.process} value={type.process}>
+                {type.process}
               </option>
             ))}
           </select>

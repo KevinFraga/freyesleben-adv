@@ -27,10 +27,24 @@
   height: 4rem;
 }
 
+.process-button {
+  position: relative;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+  background-color: #03318d;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
 .download-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border: solid 2px #033E8D;
   color: #03318d;
   font-family: Helvetica, sans-serif;
@@ -52,7 +66,7 @@
 }
 
 .d-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   margin: 1rem;
   white-space: pre-line;

@@ -22,7 +22,7 @@ const registerFile = async ({
     [userId, process]
   );
 
-  if (count[0].count >= 3) updateStep(userId);
+  if (count[0].count >= 3) updateStep(userId, process);
 
   return { fileName, filePath };
 };
@@ -54,42 +54,42 @@ const getAllFiles = async (id) => {
   return data;
 };
 
-const updateStep = async (id) => {
+const updateStep = async (id, process) => {
   const [contract] = await connect.query(
-    "SELECT * FROM files WHERE user_id = ? AND kind = 'Contrato';",
-    [id]
+    "SELECT * FROM files WHERE user_id = ? AND process = ? AND kind = 'Contrato Assinado';",
+    [id, process]
   );
 
   if (contract[0]) {
-    updateNextStep(id);
+    updateNextStep(id, process);
   } else {
     const [_data] = await connect.query(
-      "UPDATE users SET step = 'Documentos recebidos, por favor assine e nos envie o seu contrato conosco.' WHERE id = ?;",
-      [id]
+      "UPDATE userProcesses SET step = 'Documentos recebidos, por favor assine e nos envie o seu contrato conosco.', documentation = 50 WHERE user_id = ? AND process = ?;",
+      [id, process]
     );
   }
 };
 
-const updateNextStep = async (id) => {
+const updateNextStep = async (id, process) => {
   const [payment] = await connect.query(
-    "SELECT * FROM files WHERE user_id = ? AND kind = 'Comprovante de Pagamento';",
-    [id]
+    "SELECT * FROM files WHERE user_id = ? AND process = ? AND kind = 'Comprovante de Pagamento';",
+    [id, process]
   );
 
   if (payment[0]) {
-    updateLastStep(id);
+    updateLastStep(id, process);
   } else {
     const [_data] = await connect.query(
-      "UPDATE users SET step = 'Contrato recebido, por favor realize o pagamento e nos envie o comprovante para iniciarmos o processo.' WHERE id = ?;",
-      [id]
+      "UPDATE userProcesses SET step = 'Contrato recebido, por favor realize o pagamento e nos envie o comprovante para iniciarmos o processo.', documentation = 75 WHERE user_id = ? AND process = ?;",
+      [id, process]
     );
   }
 };
 
-const updateLastStep = async (id) => {
+const updateLastStep = async (id, process) => {
   const [_data] = await connect.query(
-    "UPDATE users SET step = 'Processo protocolado.', process = 1 WHERE id = ?;",
-    [id]
+    "UPDATE userProcesses SET step = 'Processo protocolado.', stage = 1, documentation = 100 WHERE user_id = ? AND process = ?;",
+    [id, process]
   );
 };
 

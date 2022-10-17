@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Process from '../components/process';
+import ProcessHub from '../components/processHub';
 
 const axios = require('axios').default;
 
-class Step extends Component {
+class Processes extends Component {
   constructor() {
     super();
     this.state = {
       userId: 0,
-      name: '',
       loggedIn: false,
       loading: true,
       profilepic: '/new-user.png',
@@ -26,8 +25,8 @@ class Step extends Component {
       axios
         .post('http://localhost:3007/user/token', { token })
         .then((response) => {
-          const { id, name, profilepic } = response.data;
-          this.setState({ userId: id, name, loggedIn: true, loading: false, profilepic });
+          const { id, profilepic } = response.data;
+          this.setState({ userId: id, loggedIn: true, loading: false, profilepic });
         })
         .catch((error) => {
           localStorage.removeItem('token');
@@ -38,16 +37,16 @@ class Step extends Component {
   }
 
   render() {
-    const { userId, name, loggedIn, loading, profilepic } = this.state;
+    const { userId, loggedIn, loading, profilepic } = this.state;
     return (
       <div>
         {!loggedIn && !loading && <Navigate to="/" />}
         <Header userId={userId} loggedIn={loggedIn} profilepic={profilepic} />
-        {!loading && <Process userId={userId} name={name} />}
+        {!loading && <ProcessHub userId={userId} />}
         <Footer />
       </div>
     );
   }
 }
 
-export default Step;
+export default Processes;
