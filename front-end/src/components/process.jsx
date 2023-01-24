@@ -61,7 +61,7 @@ class Process extends Component {
                     className="step"
                     style={stage === 1 ? colored : null}
                   />
-                  <p className="step-text">Protocolado</p>
+                  <p className="step-text">Protocolo</p>
                 </div>
                 <div className="line-step" />
                 <div className="progress-step">

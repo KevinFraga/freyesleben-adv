@@ -88,7 +88,7 @@ const updateNextStep = async (id, process) => {
 
 const updateLastStep = async (id, process) => {
   const [_data] = await connect.query(
-    "UPDATE userProcesses SET step = 'Processo protocolado.', stage = 1, documentation = 100 WHERE user_id = ? AND process = ?;",
+    "UPDATE userProcesses SET step = 'Processo aguardando protocolo.', stage = 1, documentation = 100 WHERE user_id = ? AND process = ?;",
     [id, process]
   );
 };

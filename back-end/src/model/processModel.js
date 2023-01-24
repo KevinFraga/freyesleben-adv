@@ -2,7 +2,7 @@ const connect = require('./connection');
 
 const createProcess = async ({ userId, process }) => {
   const [_data] = await connect.query(
-    "INSERT INTO userProcesses(user_id, process, step, stage, color, documentation) VALUES (?, ?, 'Processo iniciado, por favor envie os seus documentos para continuarmos.', 0, 'green', 0);",
+    "INSERT INTO userProcesses(user_id, process, step, stage, color, documentation) VALUES (?, ?, 'Processo iniciado, por favor envie os seus documentos para continuarmos.', 0, 'yellow', 0);",
     [userId, process]
   );
 
