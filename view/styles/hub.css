@@ -1,0 +1,117 @@
+.carousel {
+  margin-top: 8rem;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  ul.slides {
+    display: block;
+    height: 82vh;
+    list-style: none;
+    margin: auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  ul.slides {
+    display: block;
+    height: 75vh;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.slides * {
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.slide-image {
+  display: block;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.7s ease-in-out;
+  width: 100%;
+}
+
+.slide-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.slide-text {
+  color: #03318d80;
+  font-family: Helvetica, sans-serif;
+  font-size: 0.7rem;
+  opacity: 0;
+  text-align: left;
+  text-shadow: 0.5px 0.5px #00000020;
+  transition: all 0.7s ease-in-out;
+}
+
+.text-container {
+  background-color: #ffffff80;
+  bottom: 1rem;
+  display: block;
+  height: fit-content;
+  left: 10%;
+  opacity: 0;
+  padding: 1rem;
+  position: absolute;
+  width: 75%;
+}
+
+.carousel-controls {
+  color: #03318d;
+  font-size: 3.5rem;
+  left: 0;
+  line-height: 50vh;
+  position: absolute;
+  right: 0;
+  z-index: 6;
+}
+
+.carousel-controls div {
+  cursor: pointer;
+  padding: 2rem;
+  position: absolute;
+  transition: opacity 0.2s;
+}
+
+.prev-slide {
+  height: 100rem;
+  left: 0;
+  text-align: left;
+  width: 25%;
+}
+
+.next-slide {
+  height: 100rem;
+  right: 0;
+  text-align: right;
+  width: 25%;
+}
+
+.selected .slide-image,
+.selected .slide-text,
+.selected .text-container {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease-in-out;
+}

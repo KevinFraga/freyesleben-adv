@@ -1,0 +1,40 @@
+body {
+  background-color: #d5d9df;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  align-items: center;
+  display: flex;
+  font-family: Helvetica, sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 8rem;
+  margin-top: 8rem;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: inherit;
+  padding: 0;
+}
+
+.backlogo-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  opacity: 20%;
+  position: fixed;
+  top: 35%;
+  width: 100%;
+  z-index: -2;
+}
+
+.backlogo-container img {
+  height: 100%;
+  overflow: hidden;
+}

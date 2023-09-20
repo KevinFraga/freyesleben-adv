@@ -1,0 +1,67 @@
+@media screen and (min-width: 768px) {
+  .process-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    color: #03318d;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .process-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    color: #03318d;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 80%;
+  }
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.process-table thead {
+  background-color: #03318d;
+  color: white;
+}
+
+.process-table tbody tr:nth-child(even) {
+  background-color: #eeeeee80;
+}
+
+.process-table tbody tr:nth-child(odd) {
+  background-color: #ffffff80;
+}
+
+.p-step {
+  color: #03318d;
+  font-size: 3.5rem;
+  font-weight: bolder;
+  line-height: 40%;
+  text-decoration: none;
+}
+
+.t-title {
+  width: 30%;
+}
+
+.t-file {
+  width: 60%;
+}

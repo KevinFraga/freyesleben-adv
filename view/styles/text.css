@@ -1,0 +1,208 @@
+.title {
+  color: #03318d;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem;
+  text-align: center;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.cv-title {
+  color: #03318d;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem;
+  text-align: center;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.cv-sub {
+  bottom: 1rem;
+  color: #03318d;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.0rem;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.subtitle {
+  bottom: 1rem;
+  color: #03318d;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.important {
+  background-color: #ffffff80;
+  border: solid 2px #033e8d;
+  color: #03318d;
+  display: block;
+  font-family: Helvetica, sans-serif;
+  list-style: none;
+  margin: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  position: relative;
+  text-align: left;
+  text-shadow: 1px 1px black;
+  width: 85%;
+}
+
+.c-img {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c-img img {
+  border-radius: 100%;
+  margin-top: 2rem;
+  width: 15rem;
+}
+
+.c-list {
+  list-style: square;
+}
+
+.post {
+  background-color: #eeeeee80;
+  border: solid 2px #033e8d;
+  color: #03318d;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, sans-serif;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0.5rem;
+  position: relative;
+  text-align: left;
+  text-shadow: 1px 1px black;
+  width: 90%;
+}
+
+.p-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.p-name {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.p-data {
+  width: 60%;
+}
+
+.p-img {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 40%;
+}
+
+.p-img img {
+  border-radius: 100%;
+  margin-top: 1rem;
+  width: 6rem;
+}
+
+.post-title {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: center;
+}
+
+.p-text {
+  color: #03318d;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1rem;
+  margin: 0.5rem;
+  text-align: left;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.p-title {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: center;
+}
+
+.p-info {
+  font-size: 1.0rem;
+  margin-left: 1.5rem;
+  text-align: center;
+}
+
+.partner-description {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  height: 100%;
+  justify-content: center;
+  margin: 0.2rem;
+  text-align: center;
+}
+
+.step-text {
+  color: #03318d;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.0rem;
+  margin: 0;
+  text-align: left;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.user-name {
+  align-self: flex-start;
+  color: #033e8d;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.6rem;
+  margin: 0.5rem;
+  text-shadow: 1px 1px black;
+}
+
+.form-error {
+  color: red;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.credit-text {
+  color: #03318d;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 0.9rem;
+  margin: 0;
+  margin-right: 0.5rem;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.credit-subtext {
+  color: #03318d;
+  font-family: Helvetica, sans-serif;
+  font-size: 0.7rem;
+  margin: 0;
+  margin-right: 0.5rem;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.center p {
+  text-align: center;
+}
